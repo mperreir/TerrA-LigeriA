@@ -26727,7 +26727,7 @@
 
 			var dataUriRegex = /^data:(.*?)(;base64)?,(.*)$/;
 			var dataUriRegexResult = url.match(dataUriRegex);
-			var request; // Safari can not handle Data URIs through XMLHttpRequest so process manually
+			var request; // Safari can not handle data URIs through XMLHttpRequest so process manually
 
 			if (dataUriRegexResult) {
 				var mimeType = dataUriRegexResult[1];
