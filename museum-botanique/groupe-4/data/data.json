@@ -20,5 +20,16 @@
         "PartieConserve":"Inflorescence",
         "Rarete":"",
         "Image": "./mhnn.b.10101.013.jpg"
+    },
+    "MHNN.B.010101.038":{
+        "Collection":"BOURGAULT DUCOUDRAY",
+        "DateEntree:":1877,
+        "LieuCollecte":"Nantes",
+        "DateCollecte":"00.04.1848",
+        "NomScientifique":"Anemone stellata Lam. Anemone hortensis L. var. stellata (Lam.) Gren. & Godr.",
+        "Famille":"Ranunculaceae",
+        "PartieConserve":"InflorescenceFeuille",
+        "Rarete":"",
+        "Image": "./mhnn.b.10101.038.jpg"
     }
 } 
