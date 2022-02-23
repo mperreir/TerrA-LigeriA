@@ -15,4 +15,39 @@
     <body>
         
     </body>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <video>
+        <source src="/video/video.mp4" preload="auto"
+            type="video/mp4">
+    </video>
+
+    <script>
+
+        window.onload = () => {
+            // 1/30 pour 30 FPS
+            const frameTime = 1 / 30;
+
+            const video = document.querySelector("video");
+
+            document.addEventListener('keydown', function (evt) {
+                if (video.paused) {
+                    if (evt.code === "ArrowLeft") {
+                        video.currentTime = Math.max(0, video.currentTime - frameTime);
+                    } else if (evt.code === "ArrowRight") {
+                        video.currentTime = Math.min(video.duration, video.currentTime + frameTime);
+                    }
+                }        
+            });
+        }
+    </script>
+</body>
+
 </html>
