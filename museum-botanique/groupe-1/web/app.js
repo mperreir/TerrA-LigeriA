@@ -18,6 +18,24 @@ const server = https.createServer({ key: key, cert: cert }, app);
 
 const io = new Server(server);
 
-io.on('connection', (socket) => { console.log('a user connected'); });
+io.on('connection', (socket) => { 
+
+    socket.on('telephone', function(data){
+        socket.broadcast.emit('telephone', data);
+    });
+
+    socket.on('tablette', function(data){
+        socket.broadcast.emit('tablette', data);
+    });
+
+    socket.on('hologramme', function(data){
+        socket.broadcast.emit('hologramme', data);
+    });
+
+    socket.on('controleur', function(data){
+        socket.broadcast.emit('controleur', data);
+    });
+
+ });
 
 server.listen(port, () => { console.log(`listening on ${port}`) });
