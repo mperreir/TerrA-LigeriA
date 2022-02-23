@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="robots" content="noindex, nofollow">
-        <style type="text/css">
-            body {
-              padding: 0;
-              margin: 0;
-            }
-        </style>
-        
-        <title>Hologramme</title>
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+    <title>Hologramme</title>
+</head>
+
+<body>
+
+</body>
 
 <html lang="en">
 
@@ -27,48 +29,41 @@
 </head>
 
 <body>
-    <video>
-        <source src="/video/video.mp4" preload="auto" type="video/mp4">
-    </video>
+    <div class="img">
+
+        <img src="/decoupe/video_000.jpg" alt="">
+
+    </div>
     <script src='/js/socketio.js'></script>
     <script>
-
         window.onload = () => {
             const socket = io();
 
             socket.on("connect", () => {
                 console.log("Connecté");
             })
-         
+
             // 1/30 pour 30 FPS
             let frameTime = 1 / 30;
 
-            const video = document.querySelector("video");
+            const nbImage = 299;
+            const ImagePerAngle = nbImage / 360;
 
-            var dataangle = 0;
-            var olddataangle;
-            var dif;
             socket.on('hologramme', (data) => {
-                olddataangle = dataangle;
-                //console.log(olddataangle);
-                dataangle = data.value;
-                //console.log(dataangle);
-                dif = olddataangle - dataangle;
-                //console.log(dif);
-                //console.log(video);
-                durationvideo = Math.round(video.duration); // seconds * fps
-                frameTime = durationvideo/360; // s * (angle^-1)
-                if (video.paused) {
-                    //video.currentTime = Math.max(0, video.currentTime + dif);
-                    console.log(Math.round((frameTime * dataangle))) ;
-                    video.currentTime = Math.max(0, Math.round(frameTime * dataangle));
+                let angle = data.value;
+                let imageToShow = Math.round(angle * ImagePerAngle);
+                let formatImage = "";
+                if (imageToShow < 10) {
+                    formatImage = "00" + imageToShow;
+                } else if (imageToShow < 100) {
+                    formatImage = "0" + imageToShow;
+                } else {
+                    formatImage = "" + imageToShow;
                 }
+                document.querySelector('img').src = '/decoupe/video_' + formatImage + '.jpg'
             })
 
         }
-
-
-        
     </script>
 </body>
 
