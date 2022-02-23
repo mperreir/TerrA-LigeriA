@@ -36,7 +36,6 @@ const data = {
 const seuilMouvement = 1000;
 const tempsAttente = 80;
 const values = Object.values(data);
-var index = 0;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -108,7 +107,6 @@ document.addEventListener('nextPage', (evt) => {
     currentPage++;
     }
 })
-let active_slide = 1;
 
 document.addEventListener('evtDetails', (evt) => {
     // speed of animations (ms)
@@ -129,7 +127,7 @@ document.addEventListener('evtDetails', (evt) => {
         var slide = $(".slide[pos='" + active_slide + "']");
         slide.delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
         slide.html("")
-        slide.append(generate_table(index))
+        slide.append(generate_table(currentPage -1))
         
         } else {
             $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
