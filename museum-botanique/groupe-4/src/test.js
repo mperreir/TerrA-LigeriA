@@ -36,11 +36,9 @@ const data = {
 const seuilMouvement = 1000;
 const tempsAttente = 80;
 const values = Object.values(data);
-var index = 0;
 var doitAttendre = false;
 var compteur = 0;
-
-init();
+var active_slide = 1;
 
 console.log(data)
 image = document.getElementById("img")
@@ -70,62 +68,26 @@ function gererMouvement(hand){
     const yVelocity = hand.palmVelocity[1];
 
     //console.log(hand.palmVelocity);
+    
     if ((Math.abs(xVelocity) >= seuilMouvement) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
-        if (xVelocity>0)
-            prevPage();
+        if (active_slide == 2) 
+            document.dispatchEvent(new CustomEvent('evtDetails'));
+        else if (xVelocity>0)
+            document.dispatchEvent(new CustomEvent('prevPage'));
         else
-            nextPage();
+            document.dispatchEvent(new CustomEvent('nextPage'));
         return true;
-        
     }
     else if (Math.abs(yVelocity) >= seuilMouvement){
-        if (yVelocity>0)
-            console.log("Détails");
-        
+            document.dispatchEvent(new CustomEvent('evtDetails'));
         return true;
     }
     return false;
 }
 
-function defilerVersGauche(){
-    console.log("défiler gauche");
-    index = Math.abs((index - 1) % values.length);
-    image.src = values[index].Image
-}
-
-function defilerVersDroite(){
-    console.log("défiler droite");
-    index = (index + 1) % values.length;
-    image.src = values[index].Image
-}
-
-function init(){
-    const book = document.getElementById("book");
-    if (values.length>0){
-        let div = document.createElement("div");
-        div.style="height:100%; width:100%"
-        div.className="page active";
-        const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; width:100%; margin-top: 0; margin-bottom: 0;";
-        img.src=values[0].Image;
-        div.appendChild(img);
-        book.appendChild(div);
-    }
-    values.slice(1).forEach(element => {
-        const div = document.createElement("div");
-        div.className="page";
-        div.style="height:100%; width:100%"
-        const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%;width:100%; margin-top: 0; margin-bottom: 0;";
-        img.src=element.Image;
-        div.appendChild(img);
-        book.appendChild(div);
-    });
-}
-
 var currentPage = 1;
 
-function prevPage() {
+document.addEventListener('prevPage', (evt) => {
     if (currentPage > 1){
   $('.flipped')
     .last()
@@ -134,9 +96,9 @@ function prevPage() {
     .removeClass('active');
     currentPage--;
     }
-}
+})
 
-function nextPage() {
+document.addEventListener('nextPage', (evt) => {
     if (currentPage < values.length){
   $('.active')
     .toggleClass('active flipped')
@@ -144,4 +106,73 @@ function nextPage() {
     .addClass('active');
     currentPage++;
     }
-}
+})
+
+document.addEventListener('evtDetails', (evt) => {
+    // speed of animations (ms)
+    let speed = 250;
+    // non active slides moved down so they can slide up when activated
+    $(".slide[pos!='" + active_slide + "']").each(function() {
+          $(this).css("top", "10px");
+    })
+
+        if (active_slide === 1) {
+
+        /*   
+          Note: delay only works if .hide() or .show() are in its internal queue. Therefore you need to pass an argument to it, even if it's 0. (praise be to stackoverflow)
+        */
+
+        $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});          
+        active_slide = 2;
+        var slide = $(".slide[pos='" + active_slide + "']");
+        slide.delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
+        slide.html("")
+        slide.append(generate_table(currentPage -1))
+        
+        } else {
+            $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
+            active_slide = 1;
+            $(".slide[pos='" + active_slide + "']").delay(speed).show(0).animate({opacity: 1, top: "0px"});  
+        }
+        
+})
+
+function  generate_table(ind) {
+    // get the reference for the body
+    var body = document.getElementsByTagName("body")[0];
+  
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+  
+    // creating all cells
+    var planteValues = Object.values(values[ind])
+    var planteKeys = Object.keys(values[ind])
+    for (var i = 0; i < planteValues.length; i++) {
+      // creates a table row
+      var row = document.createElement("tr");
+  
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cellLabel = document.createElement("td");
+        var cellText = document.createTextNode(planteKeys[i]);
+        cellLabel.style="color:white;"
+        cellLabel.appendChild(cellText);
+        row.appendChild(cellLabel);
+
+        var cell = document.createElement("td");
+        cell.style = "color: white;"
+        cellText = document.createTextNode(planteValues[i]);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+  
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
+    }
+  
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    return tbl;
+  }
+
