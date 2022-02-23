@@ -9,7 +9,7 @@ const cert = fs.readFileSync('./certs/local.crt');
 
 const { Server } = require("socket.io");
 
-const port = 443;
+const port = 8080;
 
 
 app.use(express.static('public'));
