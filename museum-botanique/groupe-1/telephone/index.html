@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+
+  <title>Detecting device orientation - orientation_example - code sample</title>
+</head>
+
+<body>
+
+  <pre class="angle" style="font-size: 3em;"></pre>
+  <pre class="angle_diff" style="font-size: 3em;"></pre>
+  <input type='hidden' class='previousAngle'>
+  <p>toto</p>
+
+  <script>
+    const output = document.querySelector('.angle');
+
+    function handleOrientation(event) {
+
+      const al = event.alpha; // In degree in the range [0;360]
+
+      output.textContent = `toto: ${al.toFixed(2)}\n`;
+
+      const diff = al - document.querySelector('.previousAngle');
+      const angle_diff = document.querySelector('.angle_diff');
+      angle_diff.textContent = `différence = \n`;
+
+    }
+
+    window.addEventListener('deviceorientation', handleOrientation);
+
+  </script>
+
+</body>
+
+</html>
