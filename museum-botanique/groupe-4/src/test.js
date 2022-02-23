@@ -40,8 +40,6 @@ var index = 0;
 var doitAttendre = false;
 var compteur = 0;
 
-init();
-
 console.log(data)
 image = document.getElementById("img")
 const controller = new Leap.Controller();
@@ -72,61 +70,22 @@ function gererMouvement(hand){
     //console.log(hand.palmVelocity);
     if ((Math.abs(xVelocity) >= seuilMouvement) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
         if (xVelocity>0)
-            prevPage();
+            document.dispatchEvent(new CustomEvent('prevPage'));
         else
-            nextPage();
+            document.dispatchEvent(new CustomEvent('nextPage'));
         return true;
         
     }
     else if (Math.abs(yVelocity) >= seuilMouvement){
-            console.log("Détails");
-            toggleDetails();
+            document.dispatchEvent(new CustomEvent('evtDetails'));
         return true;
     }
     return false;
 }
 
-function defilerVersGauche(){
-    console.log("défiler gauche");
-    index = Math.abs((index - 1) % values.length);
-    image.src = values[index].Image
-}
-
-function defilerVersDroite(){
-    console.log("défiler droite");
-    index = (index + 1) % values.length;
-    image.src = values[index].Image
-}
-
-function init(){
-    const book = document.getElementById("book");
-    if (values.length>0){
-        let div = document.createElement("div");
-        div.className="page active";
-        const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
-        img.src=values[0].Image;
-        div.appendChild(img);
-        book.appendChild(div);
-    }
-    values.slice(1).forEach(element => {
-        const div = document.createElement("div");
-        div.className="page";
-        const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
-        img.src=element.Image;
-        div.appendChild(img);
-        book.appendChild(div);
-    });
-    // hide all slides that aren't starting active slide
-  $(".slide[pos!='1']").each(function() {
-    $(this).hide();
-  })
-}
-
 var currentPage = 1;
 
-function prevPage() {
+document.addEventListener('prevPage', (evt) => {
     if (currentPage > 1){
   $('.flipped')
     .last()
@@ -135,9 +94,9 @@ function prevPage() {
     .removeClass('active');
     currentPage--;
     }
-}
+})
 
-function nextPage() {
+document.addEventListener('nextPage', (evt) => {
     if (currentPage < values.length){
   $('.active')
     .toggleClass('active flipped')
@@ -145,12 +104,10 @@ function nextPage() {
     .addClass('active');
     currentPage++;
     }
-}
-
-// slide to start. should always be 1 as it's also the lower bound to the number of slides. corresponds to [pos] attribute on html element
+})
 let active_slide = 1;
 
-function toggleDetails() {
+document.addEventListener('evtDetails', (evt) => {
     // speed of animations (ms)
     let speed = 250;
     // non active slides moved down so they can slide up when activated
@@ -158,7 +115,7 @@ function toggleDetails() {
           $(this).css("top", "10px");
         })
 
-        if (active_slide == 1) {
+        if (active_slide === 1) {
 
           /*   
           Note: delay only works if .hide() or .show() are in its internal queue. Therefore you need to pass an argument to it, even if it's 0. (praise be to stackoverflow)
@@ -175,4 +132,4 @@ function toggleDetails() {
           
         }
         
-    }
+    })

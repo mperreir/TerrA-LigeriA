@@ -1,56 +1,104 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <style>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  <script src="../lib/jquery-3.4.1.min.js" defer></script>
+  <script src="../leap-1.1.1.js"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="../lib/maptasticjs/build/maptastic.js"></script>
+  <script src="test.js" defer></script>
 
-      #environement {
-        width : 500px;
-        height : 900px;
+  <style>
+
+    #environement {
+      width : 500px;
+      height : 900px;
+    }
+    #divimage {
+      width : 500px;
+      height : 900px;
+    }
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide{
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+    img{
+      width: 400px;
+      height:400px;
+    }
+
+    @media only screen and (min-width:100px) and (max-width:500px){
+      img{
+        width: 200px;
+        height:200px;
       }
+    }
 
-      #divimage {
-        width : 500px;
-        height : 900px;
-      }
+  </style>
 
-      #img {    
-        width:100%;
-        height:100%;
-        display:block;
-      }
-    </style>
-    <link rel="stylesheet" href="PageTurn.css">
-    <title></title>    
-  </head>
 
-  <body>
-    <main>
-      <div id="environement">
-        <img src="../data/mhnn.b.10101.013.jpg" id="img">
-      </div>
+  <title></title>
+</head>
+<body>
+<button id="bt_test">TEST</button>
 
-      <div id="divimage">
-        <div class="scene">
-          <div id="book" class="book">
-            
-          </div>
+<main style="display: flex">
+  <div id="environement">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="../data/mhnn.b.10101.009.jpg"
+               alt='slide 1' />
+        </div>
+        <div class="swiper-slide">
+          <img src='../data/mhnn.b.10101.013.jpg'>
+        </div>
+        <div class="swiper-slide">
+          <img src='../data/mhnn.b.10101.013.jpg'>
         </div>
       </div>
+    </div>
+  </div>
 
-      <script src="../lib/maptasticjs/build/maptastic.js"></script>
-      <script src="../lib/jquery-3.4.1.min.js" defer></script>
-      <script src="../leap-1.1.1.js"></script>
-      <script src="VueVivant.js" defer></script>
-      <script>
-        var configObject = {
-          autoSave: false,
-          autoLoad: false,
-          layers: ["divimage","environement"]
-        };
-        var maptastic = Maptastic(configObject);
-      </script>
-    
-    </main>
-  </body>
+  <div id="divimage">
+    <img src="../data/mhnn.b.10101.009.jpg" id="img">
+  </div>
+  <script>
+    var configObject = {
+      autoSave: false,
+      autoLoad: false,
+      layers: ["divimage","environement"]
+    };
+    var maptastic = Maptastic(configObject);
+
+    const swiper = new Swiper('.swiper-container', {
+      effect: 'fade',
+      loop: true,
+      fadeEffect: {
+        crossFade: true
+      }})
+
+    document.addEventListener('nextPage', (evt) => {
+      swiper.slideNext(250);
+    })
+    document.addEventListener('prevPage', (evt) => {
+      swiper.slidePrev(250);
+    })
+  </script>
+</main>
+</body>
 </html>
