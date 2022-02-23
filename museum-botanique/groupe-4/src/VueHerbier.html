@@ -6,13 +6,31 @@
     <script src="../leap-1.1.1.js"></script>
     <script src="test.js" defer></script>
     <link rel="stylesheet" href="PageTurn.css">
+    <style>
+
+      #scene {
+        width : 700px;
+        height : 1200px;
+      }
+
+    </style>
     <title></title>
   </head>
   <body>
-        <div class="scene">
+        <div class="scene" id="scene">
           <div id="book" class="book">
             
           </div>
         </div>
+
+        <script src="../lib/maptasticjs/build/maptastic.js"></script>
+      <script>
+        var configObject = {
+          autoSave: false,
+          autoLoad: false,
+          layers: ["scene"]
+        };
+        var maptastic = Maptastic(configObject);
+      </script>
   </body>
 </html>

@@ -103,9 +103,10 @@ function init(){
     const book = document.getElementById("book");
     if (values.length>0){
         let div = document.createElement("div");
+        div.style="height:100%; width:100%"
         div.className="page active";
         const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
+        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; width:100%; margin-top: 0; margin-bottom: 0;";
         img.src=values[0].Image;
         div.appendChild(img);
         book.appendChild(div);
@@ -113,8 +114,9 @@ function init(){
     values.slice(1).forEach(element => {
         const div = document.createElement("div");
         div.className="page";
+        div.style="height:100%; width:100%"
         const img = document.createElement("img");
-        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
+        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%;width:100%; margin-top: 0; margin-bottom: 0;";
         img.src=element.Image;
         div.appendChild(img);
         book.appendChild(div);
