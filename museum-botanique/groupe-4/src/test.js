@@ -79,9 +79,8 @@ function gererMouvement(hand){
         
     }
     else if (Math.abs(yVelocity) >= seuilMouvement){
-        if (yVelocity>0)
             console.log("Détails");
-        
+            toggleDetails();
         return true;
     }
     return false;
@@ -119,6 +118,10 @@ function init(){
         div.appendChild(img);
         book.appendChild(div);
     });
+    // hide all slides that aren't starting active slide
+  $(".slide[pos!='1']").each(function() {
+    $(this).hide();
+  })
 }
 
 var currentPage = 0;
@@ -138,9 +141,38 @@ function nextPage() {
     .addClass('active');
 }
 
-bouton = document.getElementById("BT")
-bouton.addEventListener("click", (e) => {
-    index = Math.abs((index - 1) % values.length);
-    image.src = values[index].Image
-})
+// bouton = document.getElementById("BT")
+// bouton.addEventListener("click", (e) => {
+//     index = Math.abs((index - 1) % values.length);
+//     image.src = values[index].Image
+// })
 
+// slide to start. should always be 1 as it's also the lower bound to the number of slides. corresponds to [pos] attribute on html element
+let active_slide = 1;
+
+function toggleDetails() {
+    // speed of animations (ms)
+    let speed = 250;
+    // non active slides moved down so they can slide up when activated
+      $(".slide[pos!='" + active_slide + "']").each(function() {
+          $(this).css("top", "10px");
+        })
+
+        if (active_slide == 1) {
+
+          /*   
+          Note: delay only works if .hide() or .show() are in its internal queue. Therefore you need to pass an argument to it, even if it's 0. (praise be to stackoverflow)
+          */
+          $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});          
+          active_slide = 2;
+          $(".slide[pos='" + active_slide + "']").delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
+        
+        } else {
+          
+          $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
+          active_slide = 1;
+          $(".slide[pos='" + active_slide + "']").delay(speed).show(0).animate({opacity: 1, top: "0px"});
+          
+        }
+        
+    }
