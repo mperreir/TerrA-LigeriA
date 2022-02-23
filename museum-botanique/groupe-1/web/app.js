@@ -19,7 +19,7 @@ const server = https.createServer({ key: key, cert: cert }, app);
 const io = new Server(server);
 
 io.on('connection', (socket) => { 
-
+    console.log("connection");
     socket.on('telephone', function(data){
         socket.broadcast.emit('telephone', data);
     });
