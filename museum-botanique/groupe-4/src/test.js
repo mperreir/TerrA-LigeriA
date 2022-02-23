@@ -1,14 +1,13 @@
 import {data_json} from "./data.js";
-
-const data = data_json
+const data = data_json;
 const seuilMouvement = 1000;
-const tempsAttente = 60;
+const tempsAttente = 80;
 const values = Object.values(data);
 var index = 0;
 var doitAttendre = false;
 var compteur = 0;
-let image = document.getElementById("img")
 
+console.log(data)
 const controller = new Leap.Controller();
 controller.loop(function(frame) {
     if(!doitAttendre){
