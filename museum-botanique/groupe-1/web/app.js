@@ -7,7 +7,7 @@ const https = require('https');
 const key = fs.readFileSync('./certs/local.key');
 const cert = fs.readFileSync('./certs/local.crt');
 
-const { IOServer } = require("socket.io");
+const { Server } = require("socket.io");
 
 const port = 443;
 
@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 const server = https.createServer({ key: key, cert: cert }, app);
 
-const io = new IOServer(server);
+const io = new Server(server);
 
 io.on('connection', (socket) => { console.log('a user connected'); });
 
