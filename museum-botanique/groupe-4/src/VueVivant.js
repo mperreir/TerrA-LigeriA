@@ -104,29 +104,36 @@ function init(){
     if (values.length>0){
         let div = document.createElement("div");
         div.className="page active";
+        div.id = 1
         const img = document.createElement("img");
         img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
         img.src=values[0].Image;
         div.appendChild(img);
         book.appendChild(div);
     }
-    values.slice(1).forEach(element => {
+    for(let i=1;i<values.length;i++) {
         const div = document.createElement("div");
+        div.id = i+1;
         div.className="page";
         const img = document.createElement("img");
         img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
-        img.src=element.Image;
+        img.src=values[i].Image;
         div.appendChild(img);
         book.appendChild(div);
-    });
+    };
 }
 
 var currentPage = 1;
 
 function prevPage() {
     if (currentPage > 1){
+
+ /* $("#"+(currentPage-1))
+    .toggle();*/
+
   $('.flipped')
     .last()
+    .toggle()
     .toggleClass('flipped active')
     .siblings('.page')
     .removeClass('active');
@@ -140,6 +147,9 @@ function nextPage() {
     .toggleClass('active flipped')
     .next('.page')
     .addClass('active');
+    setTimeout( ()=>{$('.flipped').last().toggle()} ,1200);
+
+  //$('#'+currentPage).toggle();
     currentPage++;
     }
 }
