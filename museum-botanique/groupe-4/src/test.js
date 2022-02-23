@@ -40,6 +40,8 @@ var index = 0;
 var doitAttendre = false;
 var compteur = 0;
 
+init();
+
 console.log(data)
 const controller = new Leap.Controller();
 controller.loop(function(frame) {
@@ -71,9 +73,9 @@ function gererMouvement(hand){
     //console.log(hand.palmVelocity);
     if ((Math.abs(xVelocity) >= seuilMouvement) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
         if (xVelocity>0)
-            defilerVersDroite();
+            nextPage();
         else
-            defilerVersGauche();
+            prevPage();
         return true;
         
     }
@@ -96,4 +98,43 @@ function defilerVersDroite(){
     console.log("défiler droite");
     index = (index + 1) % values.length;
     image.src = values[index].Image
+}
+
+function init(){
+    const book = document.getElementById("book");
+    if (values.length>0){
+        let div = document.createElement("div");
+        div.className="page active";
+        const img = document.createElement("img");
+        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
+        img.src=values[0].Image;
+        div.appendChild(img);
+        book.appendChild(div);
+    }
+    values.slice(1).forEach(element => {
+        const div = document.createElement("div");
+        div.className="page";
+        const img = document.createElement("img");
+        img.style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100vh; margin-top: 0; margin-bottom: 0;";
+        img.src=element.Image;
+        div.appendChild(img);
+        book.appendChild(div);
+    });
+}
+
+var currentPage = 0;
+
+function prevPage() {
+  $('.flipped')
+    .last()
+    .toggleClass('flipped active')
+    .siblings('.page')
+    .removeClass('active');
+}
+
+function nextPage() {
+  $('.active')
+    .toggleClass('active flipped')
+    .next('.page')
+    .addClass('active');
 }
