@@ -1,6 +1,6 @@
-export const data_json= {
+export const data_json = {
     "MHNN.B.010101.009":{
-        "Collection":"BOURGAULT DUCOUDRAY",
+    "Collection":"BOURGAULT DUCOUDRAY",
         "DateEntree:":1977,
         "LieuCollecte":"Nantes",
         "DateCollecte":"1851",
@@ -9,9 +9,9 @@ export const data_json= {
         "PartieConserve":"HerbierFeuille",
         "Rarete":"",
         "Image": "../data/mhnn.b.10101.009.jpg"
-    },
+},
     "MHNN.B.010101.013":{
-        "Collection":"BOURGAULT DUCOUDRAY",
+    "Collection":"BOURGAULT DUCOUDRAY",
         "DateEntree:":1977,
         "LieuCollecte":"Nantes",
         "DateCollecte":"00.07.184",
@@ -20,9 +20,9 @@ export const data_json= {
         "PartieConserve":"Inflorescence",
         "Rarete":"",
         "Image": "../data/mhnn.b.10101.013.jpg"
-    },
+},
     "MHNN.B.010101.038":{
-        "Collection":"BOURGAULT DUCOUDRAY",
+    "Collection":"BOURGAULT DUCOUDRAY",
         "DateEntree:":1877,
         "LieuCollecte":"Nantes",
         "DateCollecte":"00.04.1848",
@@ -31,5 +31,5 @@ export const data_json= {
         "PartieConserve":"InflorescenceFeuille",
         "Rarete":"",
         "Image": "../data/mhnn.b.10101.038.jpg"
-    }
+}
 }
