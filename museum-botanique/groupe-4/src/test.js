@@ -40,13 +40,11 @@ var index = 0;
 var doitAttendre = false;
 var compteur = 0;
 
-console.log(data)
+image = document.getElementById("img")
 const controller = new Leap.Controller();
 controller.loop(function(frame) {
     if(!doitAttendre){
     if (frame.hands[0]){
-      //console.log(frame.hands[0].palmVelocity);
-      //haveLoggedFrame = true;
       const actionRealisee = gererMouvement(frame.hands[0]);
       if (actionRealisee) {
           doitAttendre = true;
@@ -97,3 +95,9 @@ function defilerVersDroite(){
     index = (index + 1) % values.length;
     image.src = values[index].Image
 }
+
+bouton = document.getElementById("BT")
+bouton.addEventListener("click", (e) => {
+    index = Math.abs((index - 1) % values.length);
+    image.src = values[index].Image
+})
