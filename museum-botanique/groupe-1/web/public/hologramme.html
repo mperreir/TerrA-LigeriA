@@ -35,28 +35,36 @@
 
         window.onload = () => {
             const socket = io();
-            console.log('toto');
 
             socket.on("connect", () => {
                 console.log("Connecté");
             })
-            socket.on('hologramme', (data) => {
-                console.log(data);
-            })
+         
             // 1/30 pour 30 FPS
-            const frameTime = 1 / 30;
+            let frameTime = 1 / 30;
 
             const video = document.querySelector("video");
 
-            document.addEventListener('keydown', function (evt) {
+            var dataangle = 0;
+            var olddataangle;
+            var dif;
+            socket.on('hologramme', (data) => {
+                olddataangle = dataangle;
+                //console.log(olddataangle);
+                dataangle = data.value;
+                //console.log(dataangle);
+                dif = olddataangle - dataangle;
+                //console.log(dif);
+                //console.log(video);
+                durationvideo = Math.round(video.duration); // seconds * fps
+                frameTime = durationvideo/360; // s * (angle^-1)
                 if (video.paused) {
-                    if (evt.code === "ArrowLeft") {
-                        video.currentTime = Math.max(0, video.currentTime - frameTime);
-                    } else if (evt.code === "ArrowRight") {
-                        video.currentTime = Math.min(video.duration, video.currentTime + frameTime);
-                    }
+                    //video.currentTime = Math.max(0, video.currentTime + dif);
+                    console.log(Math.round((frameTime * dataangle))) ;
+                    video.currentTime = Math.max(0, Math.round(frameTime * dataangle));
                 }
-            });
+            })
+
         }
 
 
