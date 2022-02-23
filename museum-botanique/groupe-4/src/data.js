@@ -1,4 +1,4 @@
-{
+export const data_json= {
     "MHNN.B.010101.009":{
         "Collection":"BOURGAULT DUCOUDRAY",
         "DateEntree:":1977,
@@ -8,7 +8,7 @@
         "Famille":"Ranunculaceae",
         "PartieConserve":"HerbierFeuille",
         "Rarete":"",
-        "Image": "./mhnn.b.10101.009.jpg"
+        "Image": "../data/mhnn.b.10101.009.jpg"
     },
     "MHNN.B.010101.013":{
         "Collection":"BOURGAULT DUCOUDRAY",
@@ -19,7 +19,7 @@
         "Famille":"Ranunculaceae",
         "PartieConserve":"Inflorescence",
         "Rarete":"",
-        "Image": "./mhnn.b.10101.013.jpg"
+        "Image": "../data/mhnn.b.10101.013.jpg"
     },
     "MHNN.B.010101.038":{
         "Collection":"BOURGAULT DUCOUDRAY",
@@ -30,6 +30,6 @@
         "Famille":"Ranunculaceae",
         "PartieConserve":"InflorescenceFeuille",
         "Rarete":"",
-        "Image": "./mhnn.b.10101.038.jpg"
+        "Image": "../data/mhnn.b.10101.038.jpg"
     }
-} 
+}
