@@ -1,35 +1,50 @@
-<html><head>
-    <meta charset="utf-8">
-    <meta name="robots" content="noindex, nofollow">
-    <style type="text/css">
-        body {
-          padding: 0;
-          margin: 0;
-        }
-    </style>
-    
-    <title>Detecting device orientation - orientation_example - code sample</title>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+
+  <title>Detecting device orientation - orientation_example - code sample</title>
 </head>
+
 <body>
 
-<pre class="output" style="font-size: 3em;"></pre>
+  <pre class="angle_g" style="font-size: 3em;"></pre>
+  <script src='/js/socketio.js'>
 
-    
-    
-        <script>
-var output = document.querySelector('.output');
+  </script>
+  <script>
+    const socket = io();
+    socket.on("connect", () => {
+      console.log("Connecté");
+    })
+    const angle_g = document.querySelector('.angle_g');
+    let last = 43434;
+    function handleOrientation(event) {
 
-function handleOrientation(event) {
+      const angle1 = Math.round(event.alpha); // In degree in the range [0;360]
+      angle_g.textContent = `angle: ${angle1 }\n`;
 
-var al = event.alpha; // In degree in the range [-90,90)
+      if (last != angle1){
+        socket.emit("hologramme", {
+          action : "angle",
+          value : angle1
+        });
+        last = angle1;
+      }
+    }
 
-output.textContent = `alpha: ${al.toFixed(2)}\n`;
+    window.addEventListener('deviceorientation', handleOrientation);
 
-}
+  </script>
 
-window.addEventListener('deviceorientation', handleOrientation);
+</body>
 
-        </script>
-    
 
-</body></html>
+</html>
