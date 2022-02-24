@@ -70,7 +70,7 @@ function gererMouvement(hand){
     //console.log(hand.palmVelocity);
     
     if ((Math.abs(xVelocity) >= seuilMouvement) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
-        if (active_slide == 2) 
+        if (active_slide === 2)
             document.dispatchEvent(new CustomEvent('evtDetails'));
         else if (xVelocity>0)
             document.dispatchEvent(new CustomEvent('prevPage'));

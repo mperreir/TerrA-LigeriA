@@ -2,12 +2,13 @@
 <html lang="">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
   <script src="../lib/jquery-3.4.1.min.js" defer></script>
   <script src="../leap-1.1.1.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="../lib/maptasticjs/build/maptastic.js"></script>
-  <script src="test.js" defer></script>
+  <script src="vivant.js" defer></script>
+  <script src="loop.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
 
   <style>
 
@@ -59,8 +60,6 @@
   <title></title>
 </head>
 <body>
-<button id="bt_test">TEST</button>
-
 <main style="display: flex">
   <div id="environement">
     <div class="swiper-container">
@@ -82,28 +81,6 @@
   <div id="divimage">
     <img src="../data/mhnn.b.10101.009.jpg" id="img">
   </div>
-  <script>
-    var configObject = {
-      autoSave: false,
-      autoLoad: false,
-      layers: ["divimage","environement"]
-    };
-    var maptastic = Maptastic(configObject);
-
-    const swiper = new Swiper('.swiper-container', {
-      effect: 'fade',
-      loop: true,
-      fadeEffect: {
-        crossFade: true
-      }})
-
-    document.addEventListener('nextPage', (evt) => {
-      swiper.slideNext(250);
-    })
-    document.addEventListener('prevPage', (evt) => {
-      swiper.slidePrev(250);
-    })
-  </script>
 </main>
 </body>
 </html>
