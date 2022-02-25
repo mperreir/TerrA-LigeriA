@@ -16,7 +16,7 @@ screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 
 # Load image
-rien = pygame.image.load('./Image/rien.png').convert()
+rien = pygame.image.load('./Images/rien.png').convert()
 
 #H0 = pygame.image.load('./Images/H0.png').convert()
 H1 = pygame.image.load('./Images/H1.png').convert()
