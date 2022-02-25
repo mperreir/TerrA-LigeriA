@@ -60,8 +60,9 @@ print("Debut du jeu")
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
 
-    #Lecture de la caméra
+
     while True:
+        # Lecture de la caméra
         _, img = cam.read()
 
         #Traitement des mains
@@ -85,6 +86,64 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     prec = val
 
         cv2.imshow("image", img)
+
+        #Détection de la plaque utlisée
+
+        imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) #Conversion du format BGR en HSV
+
+
+        lowWhiteLimit = np.array([0, 0, 190])  #Mise en place du seuil HSV limite bas du blanc
+        upWhiteLimit = np.array([255, 50, 255])  #Mise en place du seuil HSV limite haut du blanc
+
+        lowGreenLimit = np.array([30, 50, 50]) #Mise en place du seuil HSV limite bas du vert
+        upGreenLimit = np.array([70, 255, 255]) #Mise en place du seuil HSV limite haut du vert
+
+        lowBlackLimit = np.array([0, 0, 0]) #Mise en place du seuil HSV limite bas du noir
+        upBlackLimit = np.array([255, 255, 100]) #Mise en place du seuil HSV limite haut du noir
+
+        #Création des masques correspondant à chaque couleur
+        whiteMask = cv2.inRange(imgHSV, lowWhiteLimit, upWhiteLimit)
+        greenMask = cv2.inRange(imgHSV, lowGreenLimit, upGreenLimit)
+        blackMask = cv2.inRange(imgHSV, lowBlackLimit, upBlackLimit)
+
+
+        #Application des masques sur notre images de base
+        whiteFrame = cv2.bitwise_and(img, img, mask=whiteMask)
+        greenFrame = cv2.bitwise_and(img, img, mask=greenMask)
+        blackFrame = cv2.bitwise_and(img, img, mask=blackMask)
+
+        #Sélection d'une région en particulier
+        subImageFrame = img[0:0 + 50, 0:0 + 50]
+        subImageWhite = whiteFrame[0:0 + 50, 0:0 + 50]
+        subImageGreen = greenFrame[0:0 + 50, 0:0 + 50]
+        subImageBlack = blackFrame[0:0 + 50, 0:0 + 50]
+
+        #On récupère la moyenne des valeurs des pixels de la région pour déterminer
+        #a quelle couleur elle correspond
+        whiteMean = subImageWhite.mean()
+        greenMean = subImageGreen.mean()
+        blackMean = subImageBlack.mean()
+
+
+        #Affichages Tests
+        # cv2.imshow('Original', frame)
+        # cv2.imshow('White Detector', whiteFrame)
+        # cv2.imshow('Green Detector', greenFrame)
+        # cv2.imshow('Black Detector', blackFrame)
+        # cv2.imshow('Sub_Original', subImageFrame)
+        # cv2.imshow('Sub_White Detector', subImageWhite)
+        # cv2.imshow('Sub_Green Detector', subImageGreen)
+        # cv2.imshow('Sub_Black Detector', subImageBlack)
+
+        #Envoie de la couleur détecté via TCP
+        seuil = 150
+        if whiteMean > seuil:
+            s.sendall("Vide".encode())
+        elif greenMean > seuil:
+            s.sendall("Ete".encode())
+        elif blackMean > seuil:
+            s.sendall("Hiver".encode())
+
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
