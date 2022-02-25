@@ -11,13 +11,14 @@
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/css/tablette.css">
+    <link rel="stylesheet" href="/css/instruction.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
 </head>
 
 <body>
     <main>
         <div class="container">
-
 
             <div class="swiper" id='swiper_id'>
                 <!-- Additional required wrapper -->
@@ -56,11 +57,10 @@
             <div class="container">
                 <div class="main-content">
                     <div class="instruction">
-                        <p>Tourne le disque pour</p>
-                        <p>manipuler la plante</p>
+                        <p>Tourne le disque sous la table pour manipuler</p>
+                        <p>la plante affichée sur l’hologramme</p>
                     </div>
-                    <img class="circle" src=""></img>
-                    <img class="arrow" src=""></img>
+                    <img class="circle_arrow" src="/images/restart.svg"></img>
                 </div>
 
             </div>
@@ -71,80 +71,5 @@
 
     </main>
 </body>
-
-<style>
-    @font-face {
-        font-family: 'Montserrat';
-        src: local('Montserrat'), url(../fonts/Montserrat-Regular.ttf) format('truetype');
-    }
-
-    body {
-        background-color: black;
-        color: white;
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Swiper*/
-    .swiper {
-        width: 80%;
-        height: 400px;
-    }
-
-    .swiper-slide {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .swiper-button-prev {
-        position: relative;
-        top: 100px;
-    }
-
-    .swiper-button-next {
-        top: 100px;
-    }
-
-    .swiper-wrapper {
-        position: absolute;
-    }
-    /****************************/
-
-    /* contenu du swiper */
-    #name {
-        text-align: center;
-        font-size: 40px;
-        margin: 0px;
-        top: 55px;
-        position: absolute;
-    }
-
-    .flower {
-        position: absolute;
-        z-index: 20;
-        top: 50px;
-        width: 30%;
-    }
-    /****************************/
-
-    /* ellipse */
-    .ellipse {
-        display: block;
-        width: 100%;
-        position: relative;
-    }
-
-    .container_ellipse {
-        margin: 0 129px;
-    }
-    /****************************/
-
-    .instruction {
-        text-align: center;
-        position: absolute;
-        align-items: center;
-        left: 39%;
-        bottom: 152px;
-    }
-</style>
 
 </html>
