@@ -6,61 +6,137 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instruction</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/tablette.css">
+
 </head>
 
 <body>
     <main>
         <div class="container">
-            <h1>L'ANGÉLIQUE DES ESTUAIRES</h1>
-            <div class="main-content">
-                <div class="instruction">
-                    <p>Tourne le disque pour</p>
-                    <p>manipuler la plante</p>
-                    <img src=""></img>
+
+
+            <div class="swiper" id='swiper_id'>
+                <!-- Additional required wrapper -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <p id="name">L'ANGELIQUE DES ESTUAIRES</p>
+                        <img src='/images/groot.svg' class="flower">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <p>ORNITHOPUS SATIVUS</p>
+                        <img src='/images/groot.svg' class="flower">
+                    </div>
+
                 </div>
-                <img class="circle" src=""></img>
-                <img class="arrow" src=""></img>
+
             </div>
-            <div class="container-buttons">
-                <a class="btn menu-btn" href="">Menu</a>
-                <a class="btn restart-btn" href="">Recommencer</a>
+
+            <script>
+                const swiper = new Swiper('.swiper', {
+                    // Optional parameters
+                    direction: 'horizontal',
+                    loop: true,
+
+                    // Navigation arrows
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            </script>
+
+
+            <div class="container">
+                <div class="main-content">
+                    <div class="instruction">
+                        <p>Tourne le disque pour</p>
+                        <p>manipuler la plante</p>
+                    </div>
+                    <img class="circle" src=""></img>
+                    <img class="arrow" src=""></img>
+                </div>
+
             </div>
-        </div>
+            <div class='container_ellipse'>
+                <img src='/images/ellipse.svg' class="ellipse">
+            </div>
+
     </main>
 </body>
 
 <style>
+    @font-face {
+        font-family: 'Montserrat';
+        src: local('Montserrat'), url(../fonts/Montserrat-Regular.ttf) format('truetype');
+    }
+
     body {
         background-color: black;
         color: white;
-        font-family: 'Montserrat';
+        font-family: 'Montserrat', sans-serif;
     }
 
-    h1 {
-        font-size: 45px;
-    }
 
-    p {
-        font-size: 40px;
-    }
-
-    .container-buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .btn {
+    .ellipse {
         display: block;
-        background-color: #4CB55D;
-        border-radius: 133px;
-        width: 130px;
-        font-size: 20px;
-        text-align: center;
-        text-decoration: none;
-        color: white;
-        padding: 10px;
+        width: 100%;
+        position: relative;
     }
+
+    .container_ellipse {
+        margin: 0 129px;
+    }
+
+    .instruction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flower {
+        position: relative;
+        z-index: 20;
+        top: 200px;
+    }
+
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .swiper {
+        width: 50%;
+        height: 1200px;
+    }
+
+    #name {
+        text-align: center;
+        font-size: 40px;
+        margin: 0px;
+    }
+
+    .swiper-button-prev {
+        position: relative;
+        top: 100px;
+    }
+
+    .swiper-button-next {
+        top: 100px;
+    }
+
+    .swiper-wrapper {
+        position: absolute;
+    }
+
 </style>
 
 </html>
