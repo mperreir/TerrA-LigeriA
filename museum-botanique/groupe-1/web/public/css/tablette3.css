@@ -1,0 +1,168 @@
+html {
+
+    -moz-transform: scale(0.5);
+    -moz-transform-origin: 0 0;
+    background: #000000;    
+}
+
+
+/* ORNITHOPUS */
+#ornithopus {
+    position: absolute;
+    width: 454px;
+    height: 78px;
+    left: 154px;
+    top: 163px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 78px;
+    /* identical to box height */
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+#moncycle {
+    /* MON CyCLE */
+
+    position: absolute;
+    width: 299px;
+    height: 59px;
+    left: 154px;
+    top: 255px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    /* identical to box height */
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+p#particularite {
+    /* Une particuliarité sur moi est mon mode de reproduction: Comme je suis ermaphrodite, mes ovaires ont ses ovules fecundees deux fois par le pollen mâle. Apres, elles forment des fruits puis des graines. */
+
+    position: absolute;
+    width: 873px;
+    height: 312px;
+    left: 154px;
+    top: 368px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 43px;
+    line-height: 52px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+p#evolution{
+    /* Les parties stériles ma fleur, les pétales et les sépales, sont extrêmement diversifiés et ont pris de très nombreuses formes et couleurs au cours de l’évolution. */
+
+    position: absolute;
+    width: 896px;
+    height: 208px;
+    left: 154px;
+    top: 700px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 43px;
+    line-height: 52px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+#aujourdhui {
+    /* aujourdhui */
+
+    position: absolute;
+    width: 344px;
+    height: 59px;
+    left: 146px;
+    top: 953px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    /* identical to box height */
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+p#disparue {
+    /* Toute ma famille à actuellement disparue. Mes racines ont été longtemps utilisées par les hommes pour absorber l’azote des sols dans le but de faire de l’engrais. */
+
+    position: absolute;
+    width: 873px;
+    height: 260px;
+    left: 146px;
+    top: 1030px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 43px;
+    line-height: 52px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* 3 Description */
+/*
+figure {
+    position: absolute;
+    width: 2048px;
+    height: 1536px;
+    
+    background: #000000;
+}
+*/
+
+
+/* orni 5 */
+img#orni5 {
+    position: absolute;
+    width: 996px;
+    height: 739px;
+    left: 1078.14px;
+    top: 636px;
+    
+    border-radius: 292px;
+    transform: rotate(4.2deg);
+}
+
+
+
+/* orni 4 */
+img#orni4 {
+    position: absolute;
+    width: 908px;
+    height: 536px;
+    left: 1233px;
+    top: 77px;
+    
+    border-radius: 292px;
+}
