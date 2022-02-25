@@ -14,7 +14,6 @@ const controller = new Leap.Controller();
 controller.loop(function(frame) {
     if(!doitAttendre){
         if (frame.hands[0]){
-            console.log(frame);
             const actionRealisee = gererMouvement(frame.hands[0]);
             if (actionRealisee) {
                 doitAttendre = true;
