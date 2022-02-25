@@ -12,8 +12,8 @@ html {
     text-align: center;
   }
   .scene {
-    width : 1000px;
-    height : 1500px;
+    width : 720px;
+    height : 1180px;
     margin: 0% 5% 5% 5%;
     perspective: 1000px;
   }

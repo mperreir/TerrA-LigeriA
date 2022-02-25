@@ -1,5 +1,5 @@
-const seuilMouvementHorizontal = 750;
-const seuilMouvementVertical = 1250
+const seuilMouvementHorizontal = 500;
+const seuilMouvementVertical = 1300
 const tempsAttente = 75;
 var doitAttendre = false;
 var compteur = 0;
@@ -16,6 +16,7 @@ controller.loop(function(frame) {
     if(!doitAttendre){
         if (frame.hands[0]){
             const actionRealisee = gererMouvement(frame.hands[0]);
+            console.log(frame);
             if (actionRealisee) {
                 doitAttendre = true;
                 compteur = 0;
@@ -36,7 +37,7 @@ function gererMouvement(hand){
     const xVelocity = hand.palmVelocity[0];
     const yVelocity = hand.palmVelocity[1];
 
-    if ((Math.abs(xVelocity) >= seuilMouvementHorizontal) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
+    if ((Math.abs(xVelocity) >= seuilMouvementHorizontal) && (Math.abs(xVelocity) / seuilMouvementHorizontal ) >= ( Math.abs(yVelocity) / seuilMouvementVertical )){
         if (active_slide === 2)
             document.dispatchEvent(evtUp);
         else if (xVelocity>0)
