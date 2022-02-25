@@ -35,7 +35,7 @@ document.addEventListener('slideLeft', (evt) => {
 document.addEventListener('slideRight', (evt) => {
     if (!inDetails){
         swiper.slideNext(1250);
-        if (currentPage < 3){
+        if (currentPage < 5){
             $('.active')
                 .toggleClass('active flipped')
                 .next('.page')

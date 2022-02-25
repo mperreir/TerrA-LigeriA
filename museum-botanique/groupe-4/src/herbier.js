@@ -1,21 +1,10 @@
 let currentPage = 1
-
-
-const options = {
-    keepalive: 60,
-    clientId: 1,
-    protocolId: 'MQTT',
-    protocolVersion: 4,
-    clean: true,
-    reconnectPeriod: 1000,
-    connectTimeout: 30 * 1000,
-    will: {
-        topic: 'WillMsg',
-        payload: 'Connection Closed abnormally..!',
-        qos: 0,
-        retain: false
-    },
-}
+var configObject = {
+    autoSave: false,
+    autoLoad: false,
+    layers: ["scene"]
+};
+var maptastic = Maptastic(configObject);
 
 document.addEventListener('slideLeft', (evt) => {
     if (currentPage > 1){
@@ -30,7 +19,7 @@ document.addEventListener('slideLeft', (evt) => {
 
 document.addEventListener('slideRight', (evt) => {
     window.postMessage("Prev","*")
-    if (currentPage < 3){
+    if (currentPage < 5){
         $('.active')
             .toggleClass('active flipped')
             .next('.page')
