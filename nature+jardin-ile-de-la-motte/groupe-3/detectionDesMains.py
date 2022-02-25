@@ -81,6 +81,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     val = 0
 
                 if prec != val:
+                    print(val)
                     s.sendall(str(val).encode())
                     prec = val
 
