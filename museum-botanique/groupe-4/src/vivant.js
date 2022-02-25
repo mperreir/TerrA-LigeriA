@@ -28,12 +28,12 @@ document.addEventListener('slideLeft', (evt) => {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioPrecedent = $('#audio' + (currentPage - 1))[0];
 
-                $(audioActive).animate({volume:0.0},1000);
+                $(audioActive).animate({volume:0.0}, 750);
                 setTimeout(()=>{
                     audioActive.pause();
                     audioPrecedent.play();
-                    $(audioPrecedent).animate({volume:1.0},1000);
-                },1000);
+                    $(audioPrecedent).animate({volume:1.0},750);
+                },750);
             }
             currentPage--;
         }
@@ -51,12 +51,12 @@ document.addEventListener('slideRight', (evt) => {
             if (currentPage + 1 < 4) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioSuivant = $('#audio' + (currentPage + 1))[0];
-                $(audioActive).animate({volume:0.0},1000);
+                $(audioActive).animate({volume:0.0},750);
                 setTimeout(()=>{
                     audioActive.pause();
                     audioSuivant.play();
-                    $(audioSuivant).animate({volume:1.0},1000);
-                },1000);
+                    $(audioSuivant).animate({volume:1.0},750);
+                },750);
             }
             currentPage++;
         }
