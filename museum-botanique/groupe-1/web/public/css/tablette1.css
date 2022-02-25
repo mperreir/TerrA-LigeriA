@@ -1,0 +1,22 @@
+body {
+    font-family: 'Montserrat';
+    font-weight: 200;
+    color: white;
+}
+
+#upperContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#leftPane {
+    padding-left: 4em;
+    padding-top: 5em;
+}
+
+#rightPane img {
+    position: absolute;
+    right: 0;
+    width: 25%;
+}
