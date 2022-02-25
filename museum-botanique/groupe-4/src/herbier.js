@@ -26,6 +26,10 @@ document.addEventListener('slideRight', (evt) => {
             .addClass('active');
         currentPage++;
     }
+    else{
+        currentPage = 1;
+        retourDebut();
+    }
 })
 
 document.addEventListener('slideUp', (evt) => {
@@ -57,3 +61,15 @@ document.addEventListener('slideUp', (evt) => {
 
 })
 
+function retourDebut(){
+    console.log("here");
+    const first = $(".page").first()[0].cloneNode(true);
+    $(".book")[0].appendChild(first);
+    $(".page").last().toggleClass('active flipped')
+    .next('.page')
+    .addClass('active');
+    $(".page").first().toggleClass('active flipped');
+    $(".book div:not(:first)").toggleClass("flipped");
+    first.remove();
+    
+}
