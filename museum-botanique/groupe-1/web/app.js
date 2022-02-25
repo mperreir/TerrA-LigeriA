@@ -24,8 +24,8 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('telephone', data);
     });
 
-    socket.on('tablette', function(data){
-        socket.broadcast.emit('tablette', data);
+    socket.on('afficheur', function(data){
+        socket.broadcast.emit('afficheur', data);
     });
 
     socket.on('hologramme', function(data){

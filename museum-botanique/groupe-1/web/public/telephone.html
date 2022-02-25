@@ -3,51 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="noindex, nofollow">
-  <style type="text/css">
-    body {
-      padding: 0;
-      margin: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/telephone.css">
 
-  <title>Detecting device orientation - orientation_example - code sample</title>
+  <title>Téléphone</title>
 </head>
 
 <body>
 
   <pre class="angle_g" style="font-size: 3em;"></pre>
-  <script src='/js/socketio.js'>
-
-  </script>
-  <script>
-    const socket = io();
-    socket.on("connect", () => {
-      console.log("Connecté");
-    })
-    const angle_g = document.querySelector('.angle_g');
-    let last = 43434;
-    function handleOrientation(event) {
-
-      const angle1 = Math.round(event.alpha); // In degree in the range [0;360]
-      angle_g.textContent = `angle: ${angle1 }\n`;
-
-      if (last != angle1){
-        socket.emit("hologramme", {
-          action : "angle",
-          value : angle1
-        });
-        last = angle1;
-      }
-
-    }
-    socket.on("telephone", (data) => {
-      if (data.action == 'refresh') {
-        window.location.reload();
-      }
-    })
-
-    window.addEventListener('deviceorientation', handleOrientation);
-
-  </script>
+  <script src='/js/lib/socketio.js'></script>
+  <script src="/js/telephone.js"></script>
 </body>
 </html>
