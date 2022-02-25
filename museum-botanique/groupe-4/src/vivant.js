@@ -5,35 +5,40 @@ var configObject = {
 };
 var maptastic = Maptastic(configObject);
 
-const swiper = new Swiper('.swiper-container', {
+const swiper1 = new Swiper('#milieux', {
     effect: 'fade',
     loop: false,
     fadeEffect: {
         crossFade: true
 }})
+const swiper2 = new Swiper('#divimage', {
+    effect: 'fade',
+    loop: false,
+    fadeEffect: {
+        crossFade: true
+    }})
 
-let currentPage = 1
+let currentPage = 0;
 let inDetails = false;
     
 document.addEventListener('slideLeft', (evt) => {
     if (!inDetails){
-        swiper.slidePrev(1250);
-        if (currentPage > 1){
-            const audioActive = $('.active audio')[0];
-            const audioPrecedent = $('.flipped').last()[0].children[1];
-            $(audioActive).animate({volume:0.0},1000);
-            setTimeout(()=>{
-                audioActive.pause();
-                audioPrecedent.play();
-                $(audioPrecedent).animate({volume:1.0},1000);
-            },1000);
-            $('.flipped')
-                .last()
-                .toggleClass('flipped active')
-                .siblings('.page')
-                .removeClass('active');
+        if (currentPage > 0){
+            if (currentPage - 1 > 1) {
+                const audioActive = $('#audio' + currentPage)[0];
+                const audioPrecedent = $('#audio' + (currentPage - 1))[0];
+
+                $(audioActive).animate({volume:0.0}, 750);
+                setTimeout(()=>{
+                    audioActive.pause();
+                    audioPrecedent.play();
+                    $(audioPrecedent).animate({volume:1.0},750);
+                },750);
+            }
             currentPage--;
         }
+        swiper1.slidePrev(1250);
+        swiper2.slidePrev(1250);
     }
     else {
         inDetails = false;
@@ -42,25 +47,21 @@ document.addEventListener('slideLeft', (evt) => {
     
 document.addEventListener('slideRight', (evt) => {
     if (!inDetails){
-        swiper.slideNext(1250);
         if (currentPage < 5){
-            const audioActive = $('.active audio')[0];
-            const audioSuivant = $('.active').next()[0].children[1];
-            $(audioActive).animate({volume:0.0},1000);
-            setTimeout(()=>{
-                audioActive.pause();
-                audioSuivant.play();
-                $(audioSuivant).animate({volume:1.0},1000);
-            },1000);
-        
-            $('.active')
-                .toggleClass('active flipped')
-                .next('.page')
-                .addClass('active');
-
-            
+            if (currentPage + 1 < 5) {
+                const audioActive = $('#audio' + currentPage)[0];
+                const audioSuivant = $('#audio' + (currentPage + 1))[0];
+                $(audioActive).animate({volume:0.0},750);
+                setTimeout(()=>{
+                    audioActive.pause();
+                    audioSuivant.play();
+                    $(audioSuivant).animate({volume:1.0},750);
+                },750);
+            }
             currentPage++;
         }
+        swiper1.slideNext(1250);
+        swiper2.slideNext(1250);
     }
     else {
         inDetails = false;
