@@ -25,17 +25,15 @@
                 <div class="swiper-button-next"></div>
 
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
                         <p id="name">L'ANGELIQUE DES ESTUAIRES</p>
                         <img src='/images/groot.svg' class="flower">
                     </div>
 
                     <div class="swiper-slide">
-                        <p>ORNITHOPUS SATIVUS</p>
+                        <p id="name">ORNITHOPUS SATIVUS</p>
                         <img src='/images/groot.svg' class="flower">
                     </div>
-
                 </div>
 
             </div>
@@ -66,6 +64,7 @@
                 </div>
 
             </div>
+
             <div class='container_ellipse'>
                 <img src='/images/ellipse.svg' class="ellipse">
             </div>
@@ -85,45 +84,17 @@
         font-family: 'Montserrat', sans-serif;
     }
 
-
-    .ellipse {
-        display: block;
-        width: 100%;
-        position: relative;
-    }
-
-    .container_ellipse {
-        margin: 0 129px;
-    }
-
-    .instruction {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .flower {
-        position: relative;
-        z-index: 20;
-        top: 200px;
+    /* Swiper*/
+    .swiper {
+        width: 80%;
+        height: 400px;
     }
 
     .swiper-slide {
         display: flex;
         flex-direction: column;
     }
-
-    .swiper {
-        width: 50%;
-        height: 1200px;
-    }
-
-    #name {
-        text-align: center;
-        font-size: 40px;
-        margin: 0px;
-    }
-
+    
     .swiper-button-prev {
         position: relative;
         top: 100px;
@@ -136,7 +107,44 @@
     .swiper-wrapper {
         position: absolute;
     }
+    /****************************/
 
+    /* contenu du swiper */
+    #name {
+        text-align: center;
+        font-size: 40px;
+        margin: 0px;
+        top: 55px;
+        position: absolute;
+    }
+
+    .flower {
+        position: absolute;
+        z-index: 20;
+        top: 50px;
+        width: 30%;
+    }
+    /****************************/
+
+    /* ellipse */
+    .ellipse {
+        display: block;
+        width: 100%;
+        position: relative;
+    }
+
+    .container_ellipse {
+        margin: 0 129px;
+    }
+    /****************************/
+
+    .instruction {
+        text-align: center;
+        position: absolute;
+        align-items: center;
+        left: 39%;
+        bottom: 152px;
+    }
 </style>
 
 </html>
