@@ -5,6 +5,8 @@ var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
 var tps_inactif
+var currentPage = 1;
+const maxIndexPage = 7;
 
 const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')

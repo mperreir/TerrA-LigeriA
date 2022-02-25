@@ -7,18 +7,17 @@ var maptastic = Maptastic(configObject);
 
 const swiper1 = new Swiper('#milieux', {
     effect: 'fade',
-    loop: false,
+    loop: true,
     fadeEffect: {
         crossFade: true
 }})
 const swiper2 = new Swiper('#divimage', {
     effect: 'fade',
-    loop: false,
+    loop: true,
     fadeEffect: {
         crossFade: true
     }})
 
-let currentPage = 0;
 let inDetails = false;
     
 document.addEventListener('slideLeft', (evt) => {
@@ -47,7 +46,7 @@ document.addEventListener('slideLeft', (evt) => {
     
 document.addEventListener('slideRight', (evt) => {
     if (!inDetails){
-        if (currentPage < 5){
+        if (currentPage < maxIndexPage){
             if (currentPage + 1 < 5) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioSuivant = $('#audio' + (currentPage + 1))[0];
