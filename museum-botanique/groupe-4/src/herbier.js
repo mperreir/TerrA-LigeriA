@@ -68,15 +68,3 @@ document.addEventListener('slideUp', (evt) => {
 
 })
 
-document.getElementById("BT_LEFT").addEventListener('click', (e) => {
-    console.log("bt pressed")
-    document.dispatchEvent(evtLeft)
-})
-document.getElementById("BT_RIGHT").addEventListener('click', (e) => {
-    console.log("bt pressed")
-    document.dispatchEvent(evtRight)
-})
-document.getElementById("BT_UP").addEventListener('click', (e) => {
-    console.log("bt pressed")
-    document.dispatchEvent(evtUp)
-})

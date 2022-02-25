@@ -87,3 +87,8 @@ html {
     left: 0px;
     bottom: 0px;
   }
+
+  .slide{
+    height: 100%;
+    width: 100%;
+  }
