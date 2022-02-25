@@ -56,16 +56,20 @@ document.onkeydown = e => {
     e = e || window.event;
 
     if (e.keyCode == '38') {
-        //up arrow
-        active_slide = active_slide + 1;
-        if (active_slide >= 3) active_slide = 3
-        document.dispatchEvent(evtUp);
+            if (currentPage != 1) { 
+            //up arrow
+            active_slide = active_slide + 1;
+            if (active_slide >= 3) active_slide = 3
+            document.dispatchEvent(evtUp);
+        }
     }
     else if (e.keyCode == '40') {
-        //down arrow
-        document.dispatchEvent(evtDown);
-        active_slide = active_slide - 1;
-        if (active_slide <= 1) active_slide = 1
+        if (currentPage != 1) {
+            //down arrow
+            document.dispatchEvent(evtDown);
+            active_slide = active_slide - 1;
+            if (active_slide <= 1) active_slide = 1
+        }
     }
     else if (e.keyCode == '37') {
        //left arrow
