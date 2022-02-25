@@ -59,7 +59,7 @@ body {
     position: absolute;
     z-index: 20;
     top: 150px;
-    width: 30%;
+    width: 50%;
 }
 /****************************/
 
@@ -90,9 +90,9 @@ body {
     margin: 10px;
 }
 
-.circle_arrow {
-    right: 10px;
-    bottom: 0;
-    scale: 0.6;
+.restart {
+    right: 20px;
+    bottom: 20px;
+    height: 50px;
     position: absolute;
 }

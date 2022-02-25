@@ -36,6 +36,8 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('controleur', data);
     });
 
+    
+
  });
 
 server.listen(port, () => { console.log(`listening on ${port}`) });

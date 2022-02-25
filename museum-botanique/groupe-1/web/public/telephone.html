@@ -38,14 +38,16 @@
         });
         last = angle1;
       }
+
     }
+    socket.on("telephone", (data) => {
+      if (data.action == 'refresh') {
+        window.location.reload();
+      }
+    })
 
     window.addEventListener('deviceorientation', handleOrientation);
 
   </script>
-
 </body>
-
-
-
 </html>

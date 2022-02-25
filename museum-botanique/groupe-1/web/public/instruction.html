@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="/css/tablette.css">
+
     <link rel="stylesheet" href="/css/instruction.css">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src='/js/instruction.js' defer></script>
+    <script src='/js/socketio.js'></script>
 
 </head>
 
@@ -26,32 +28,18 @@
                 <div class="swiper-button-next"></div>
 
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-id="angelica">
                         <p id="name">L'ANGELIQUE DES ESTUAIRES</p>
-                        <img src='/images/groot.svg' class="flower">
+                        <img src='/images/angelique.svg' class="flower">
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-id="ornithopus">
                         <p id="name">ORNITHOPUS SATIVUS</p>
-                        <img src='/images/groot.svg' class="flower">
+                        <img src='/images/ornithopus.svg' class="flower">
                     </div>
                 </div>
 
             </div>
-
-            <script>
-                const swiper = new Swiper('.swiper', {
-                    // Optional parameters
-                    direction: 'horizontal',
-                    loop: true,
-
-                    // Navigation arrows
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                });
-            </script>
 
 
             <div class="container">
@@ -60,7 +48,7 @@
                         <p>Tourne le disque sous la table pour manipuler</p>
                         <p>la plante affichée sur l’hologramme</p>
                     </div>
-                    <img class="circle_arrow" src="/images/restart.svg"></img>
+                    <img class="restart" src="/images/restart.svg"></img>
                 </div>
 
             </div>

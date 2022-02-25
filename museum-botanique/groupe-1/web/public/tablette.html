@@ -7,6 +7,7 @@
     <title>Tablette11</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css">
     <link rel="stylesheet" href="/css/tablette11.css">
+    <script src="/js/socketio.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
@@ -14,9 +15,12 @@
 
     <div class="reveal">
         <div class="slides">
-            <section data-background="/images/1.svg" data-background-color="black" data-background-size="cover"></section>
-            <section data-background="/images/2.svg" data-background-color="black" data-background-size="cover"></section>
-            <section data-background="/images/3.svg" data-background-color="black" data-background-size="cover"></section>
+            <section data-background="/images/1_ornithopus.svg" data-background-color="black" data-background-size="cover">
+            </section>
+            <section data-background="/images/2_ornithopus.svg" data-background-color="black" data-background-size="cover">
+            </section>
+            <section data-background="/images/3_ornithopus.svg" data-background-color="black" data-background-size="cover">
+            </section>
         </div>
     </div>
 
@@ -26,7 +30,15 @@
         Reveal.initialize({
             progress: true,
             loop: false,
+            controls:false,   
         });
+
+        const socket = io();
+        socket.on("tablette", (data) => {
+            if (data.action == 'new_flower') {
+                console.log(data.value);
+            }
+        })
     </script>
 </body>
 
