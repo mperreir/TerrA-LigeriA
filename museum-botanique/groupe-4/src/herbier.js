@@ -47,7 +47,7 @@ document.addEventListener('slideUp', (evt) => {
         var slide = $(".slide[pos='" + active_slide + "']");
         slide.delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
         slide.html("")
-        slide.append(generate_table(currentPage -1))
+       // slide.append(generate_table(currentPage -1))
 
     } else {
         $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
