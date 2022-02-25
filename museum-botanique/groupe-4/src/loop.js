@@ -9,6 +9,7 @@ var active_slide = 1;
 const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')
 const evtUp = new CustomEvent('slideUp')
+const evtDown = new CustomEvent('slideDown')
 
 
 const controller = new Leap.Controller();
@@ -56,18 +57,27 @@ document.onkeydown = e => {
 
     if (e.keyCode == '38') {
         //up arrow
+        active_slide = active_slide + 1;
+        if (active_slide >= 3) active_slide = 3
         document.dispatchEvent(evtUp);
     }
     else if (e.keyCode == '40') {
         //down arrow
-        document.dispatchEvent(evtUp);
+        document.dispatchEvent(evtDown);
+        active_slide = active_slide - 1;
+        if (active_slide <= 1) active_slide = 1
     }
     else if (e.keyCode == '37') {
        //left arrow
-       document.dispatchEvent(evtLeft);
+       if (active_slide == 1){
+        document.dispatchEvent(evtLeft);
+       }
     }
     else if (e.keyCode == '39') {
        //right arrow
-       document.dispatchEvent(evtRight);
+       if (active_slide == 1){
+        document.dispatchEvent(evtRight);
+
+       }
     }    
 }

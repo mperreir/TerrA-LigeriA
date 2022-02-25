@@ -29,5 +29,8 @@ document.addEventListener('slideRight', (evt) => {
 })
 
 document.addEventListener('slideUp', (evt) => {
-    $(".details").toggleClass("animate");
+    $(`.details[slide="${active_slide}"]`).addClass("animate");
+})
+document.addEventListener('slideDown', (evt) => {
+    $(`.details[slide="${active_slide}"]`).removeClass("animate")
 })
