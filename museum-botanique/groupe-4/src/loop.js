@@ -16,7 +16,6 @@ controller.loop(function(frame) {
     if(!doitAttendre){
         if (frame.hands[0]){
             const actionRealisee = gererMouvement(frame.hands[0]);
-            console.log(frame);
             if (actionRealisee) {
                 doitAttendre = true;
                 compteur = 0;
