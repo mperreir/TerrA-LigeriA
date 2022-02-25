@@ -24,7 +24,7 @@ let inDetails = false;
 document.addEventListener('slideLeft', (evt) => {
     if (!inDetails){
         if (currentPage > 0){
-            if (currentPage - 1 > 0) {
+            if (currentPage - 1 > 1) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioPrecedent = $('#audio' + (currentPage - 1))[0];
 
@@ -47,8 +47,8 @@ document.addEventListener('slideLeft', (evt) => {
     
 document.addEventListener('slideRight', (evt) => {
     if (!inDetails){
-        if (currentPage < 4){
-            if (currentPage + 1 < 4) {
+        if (currentPage < 5){
+            if (currentPage + 1 < 5) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioSuivant = $('#audio' + (currentPage + 1))[0];
                 $(audioActive).animate({volume:0.0},750);
