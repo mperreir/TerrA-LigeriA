@@ -16,10 +16,6 @@
       width : 700px;
       height : 1100px;
     }
-    #divimage {
-      width : 500px;
-      height : 900px;
-    }
     html,
     body {
       position: relative;
@@ -51,10 +47,11 @@
     }
 
       #divimage {
-        width : 1300px;
+        width : 1000px;
         height : 1500px;
       }
   </style>
+    <link rel="stylesheet" href="PageTurn.css">
 
 
   <title></title>
@@ -78,9 +75,23 @@
     </div>
   </div>
 
-  <div id="divimage">
-    <img src="../data/mhnn.b.10101.009.jpg" id="img">
+  <div class="scene" id="divimage">
+    <div class="slide" pos="1" style="height: 100%; width: 100%;">
+      <div id="book" class="book">
+        <div class="page active">
+          <img src="../data/mhnn.b.10101.009.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+        </div>
+        <div class="page">
+          <img src="../data/mhnn.b.10101.013.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+        </div>
+        <div class="page">
+          <img src="../data/mhnn.b.10101.038.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="slide" pos="2" style="opacity:0;display:none"></div>
   </div>
+
 </main>
 </body>
 </html>
