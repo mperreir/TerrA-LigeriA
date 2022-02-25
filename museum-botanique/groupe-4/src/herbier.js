@@ -1,4 +1,10 @@
 let currentPage = 1
+var configObject = {
+    autoSave: false,
+    autoLoad: false,
+    layers: ["scene"]
+};
+var maptastic = Maptastic(configObject);
 
 document.addEventListener('slideLeft', (evt) => {
     if (currentPage > 1){
@@ -13,7 +19,7 @@ document.addEventListener('slideLeft', (evt) => {
 
 document.addEventListener('slideRight', (evt) => {
     window.postMessage("Prev","*")
-    if (currentPage < 3){
+    if (currentPage < 5){
         $('.active')
             .toggleClass('active flipped')
             .next('.page')

@@ -13,29 +13,43 @@ const swiper = new Swiper('.swiper-container', {
 }})
 
 let currentPage = 1
-
+let inDetails = false;
     
 document.addEventListener('slideLeft', (evt) => {
-    swiper.slidePrev(1250);
-    if (currentPage > 1){
-        $('.flipped')
-            .last()
-            .toggleClass('flipped active')
-            .siblings('.page')
-            .removeClass('active');
-        currentPage--;
+    if (!inDetails){
+        swiper.slidePrev(1250);
+        if (currentPage > 1){
+            $('.flipped')
+                .last()
+                .toggleClass('flipped active')
+                .siblings('.page')
+                .removeClass('active');
+            currentPage--;
+        }
+    }
+    else {
+        inDetails = false;
     }
 })
     
 document.addEventListener('slideRight', (evt) => {
-    swiper.slideNext(1250);
-    if (currentPage < 3){
-        $('.active')
-            .toggleClass('active flipped')
-            .next('.page')
-            .addClass('active');
-        currentPage++;
+    if (!inDetails){
+        swiper.slideNext(1250);
+        if (currentPage < 5){
+            $('.active')
+                .toggleClass('active flipped')
+                .next('.page')
+                .addClass('active');
+            currentPage++;
+        }
     }
+    else {
+        inDetails = false;
+    }
+})
+
+document.addEventListener('slideUp', (evt) => {
+    inDetails = !inDetails;
 })
     
     

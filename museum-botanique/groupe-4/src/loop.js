@@ -1,5 +1,6 @@
-const seuilMouvement = 1000;
-const tempsAttente = 80;
+const seuilMouvementHorizontal = 750;
+const seuilMouvementVertical = 1250
+const tempsAttente = 75;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -35,7 +36,7 @@ function gererMouvement(hand){
     const xVelocity = hand.palmVelocity[0];
     const yVelocity = hand.palmVelocity[1];
 
-    if ((Math.abs(xVelocity) >= seuilMouvement) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
+    if ((Math.abs(xVelocity) >= seuilMouvementHorizontal) && Math.abs(xVelocity) >= Math.abs(yVelocity)){
         if (active_slide === 2)
             document.dispatchEvent(evtUp);
         else if (xVelocity>0)
@@ -44,7 +45,7 @@ function gererMouvement(hand){
             document.dispatchEvent(evtRight);
         return true;
     }
-    else if (Math.abs(yVelocity) >= seuilMouvement){
+    else if (Math.abs(yVelocity) >= seuilMouvementVertical){
         document.dispatchEvent(evtUp);
         return true;
     }
