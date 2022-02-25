@@ -4,7 +4,7 @@ const tempsAttente = 75;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
-
+var tps_inactif
 
 const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')
@@ -14,6 +14,8 @@ const evtDown = new CustomEvent('slideDown')
 
 const controller = new Leap.Controller();
 controller.loop(function(frame) {
+    const d = new Date();
+
     if(!doitAttendre){
         if (frame.hands[0]){
             const actionRealisee = gererMouvement(frame.hands[0]);
@@ -23,6 +25,7 @@ controller.loop(function(frame) {
             }
         }
     }
+
     else {
         compteur++;
         if (compteur >= tempsAttente){
@@ -30,7 +33,15 @@ controller.loop(function(frame) {
         }
     }
 
+    //Compteur pour reset 
+    if (frame.hands.length > 0) {
+        tps_inactif = d.getTime();
+    }
+    if (d.getTime() - tps_inactif > 20 * 1000) {
+        history.go(0)
+    }
 });
+
 
 
 function gererMouvement(hand){
