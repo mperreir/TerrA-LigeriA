@@ -92,6 +92,3 @@ html {
     height: 100%;
     width: 100%;
   }
-  .slider-container{
-    transition: transform 0.5s ease-in-out;
-  }

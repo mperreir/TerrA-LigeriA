@@ -51,3 +51,23 @@ function gererMouvement(hand){
     }
     return false;
 }
+document.onkeydown = e => {
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        //up arrow
+        document.dispatchEvent(evtUp);
+    }
+    else if (e.keyCode == '40') {
+        //down arrow
+        document.dispatchEvent(evtUp);
+    }
+    else if (e.keyCode == '37') {
+       //left arrow
+       document.dispatchEvent(evtLeft);
+    }
+    else if (e.keyCode == '39') {
+       //right arrow
+       document.dispatchEvent(evtRight);
+    }    
+}
