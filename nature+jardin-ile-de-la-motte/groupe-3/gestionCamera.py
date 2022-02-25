@@ -56,6 +56,14 @@ while True:
 prec = -1
 print("Debut du jeu")
 
+
+#Instanciation des variables pour la détection de couleur des plaques
+compteurImage=0
+whiteSumMean=0
+greenSumMean=0
+blackSumMean=0
+previousColor = None
+
 #Connexion à la socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
@@ -92,14 +100,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV) #Conversion du format BGR en HSV
 
 
-        lowWhiteLimit = np.array([0, 0, 190])  #Mise en place du seuil HSV limite bas du blanc
-        upWhiteLimit = np.array([255, 50, 255])  #Mise en place du seuil HSV limite haut du blanc
+        lowWhiteLimit = np.array([0, 0, 150])  #Mise en place du seuil HSV limite bas du blanc
+        upWhiteLimit = np.array([100, 75, 255])  #Mise en place du seuil HSV limite haut du blanc
 
         lowGreenLimit = np.array([30, 50, 50]) #Mise en place du seuil HSV limite bas du vert
         upGreenLimit = np.array([70, 255, 255]) #Mise en place du seuil HSV limite haut du vert
 
-        lowBlackLimit = np.array([0, 0, 0]) #Mise en place du seuil HSV limite bas du noir
-        upBlackLimit = np.array([255, 255, 100]) #Mise en place du seuil HSV limite haut du noir
+        lowBlackLimit = np.array([100, 0, 0]) #Mise en place du seuil HSV limite bas du noir
+        upBlackLimit = np.array([200, 50, 125]) #Mise en place du seuil HSV limite haut du noir
 
         #Création des masques correspondant à chaque couleur
         whiteMask = cv2.inRange(imgHSV, lowWhiteLimit, upWhiteLimit)
@@ -113,10 +121,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         blackFrame = cv2.bitwise_and(img, img, mask=blackMask)
 
         #Sélection d'une région en particulier
-        subImageFrame = img[0:0 + 50, 0:0 + 50]
-        subImageWhite = whiteFrame[0:0 + 50, 0:0 + 50]
-        subImageGreen = greenFrame[0:0 + 50, 0:0 + 50]
-        subImageBlack = blackFrame[0:0 + 50, 0:0 + 50]
+        subImageFrame = img[125:125+50, 50:50+325]
+        subImageWhite = whiteFrame[125:125+50, 50:50+325]
+        subImageGreen = greenFrame[125:125+50, 50:50+325]
+        subImageBlack = blackFrame[125:125+50, 50:50+325]
 
         #On récupère la moyenne des valeurs des pixels de la région pour déterminer
         #a quelle couleur elle correspond
@@ -124,8 +132,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         greenMean = subImageGreen.mean()
         blackMean = subImageBlack.mean()
 
-
-        #Affichages Tests
+        #Somme des moyennes
+        whiteSumMean += whiteMean
+        greenSumMean += greenMean
+        blackSumMean += blackMean
+        #Affichages pour Tests
         # cv2.imshow('Original', frame)
         # cv2.imshow('White Detector', whiteFrame)
         # cv2.imshow('Green Detector', greenFrame)
@@ -135,14 +146,29 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # cv2.imshow('Sub_Green Detector', subImageGreen)
         # cv2.imshow('Sub_Black Detector', subImageBlack)
 
-        #Envoie de la couleur détecté via TCP
-        seuil = 150
-        if whiteMean > seuil:
-            s.sendall("Vide".encode())
-        elif greenMean > seuil:
-            s.sendall("Ete".encode())
-        elif blackMean > seuil:
-            s.sendall("Hiver".encode())
+        #COmpte jusqu'à 60 images pour déterminer la couleur dominante
+        compteurImage += 1
+        if compteurImage == 60:
+            if whiteSumMean > greenSumMean and whiteSumMean > blackSumMean:
+                color = "White"
+                value = "Vide"
+            elif greenSumMean > whiteSumMean and greenSumMean > blackSumMean:
+                color = "Green"
+                value = "Ete"
+            elif blackSumMean > greenSumMean and blackSumMean > whiteSumMean:
+                color = "Black"
+                value = "Hiver"
+
+            if previousColor != color:
+                #print(color)
+                s.sendall(str(value).encode())
+                previousColor = color
+            #Affichage des valeurs pour Tests
+            # print("White : ", whiteSumMean, "\tGreen : ", greenSumMean, "\tBlack : ", blackSumMean)
+            compteurImage = 0
+            whiteSumMean = 0
+            greenSumMean = 0
+            blackSumMean = 0
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
