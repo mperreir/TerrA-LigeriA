@@ -2,36 +2,81 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
+    <title> Herbier </title>
+
     <script src="../lib/jquery-3.4.1.min.js" defer></script>
     <script src="../leap-1.1.1.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <script src="../lib/maptasticjs/build/maptastic.js"></script>
+
     <script src="loop.js" defer></script>
     <script src="herbier.js" defer></script>
+
+    <link rel="stylesheet" href="herbier.css">
     <link rel="stylesheet" href="PageTurn.css">
-    <title></title>
   </head>
+  
   <body>
     <div class="scene" id="scene">
-      <div class="slide" pos="1" >
         <div id="book" class="book">
           <div class="page active" id="sommaire">
             <img src="../data/0-Sommaire/couverture.png " style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
           </div>
           <div class="page">
-            <img src="../data/1-BERBERIS_EMPETRIFOLIA/mhnn.b.10101.168.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            <div class="herbier" slide="1">
+              <img src="../data/1-BERBERIS_EMPETRIFOLIA/mhnn.b.10101.168.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            </div>
+            <div class="details" slide="2" style="z-index: 4;">
+              <h1> details 1 page 1!</h1>
+            </div>
+            <div class="details" slide="3" style="z-index: 5;">
+              <h1> details 1 page 2!</h1>
+            </div>
           </div>
           <div class="page">
-            <img src="../data/2-DELPHINIUM_STAPHISAGRIA/mhnn.b.10101.140.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            <div class="herbier" slide="1">
+              <img src="../data/2-DELPHINIUM_STAPHISAGRIA/mhnn.b.10101.140.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            </div>
+            <div class="details" slide="2" style="z-index: 4;">
+              <h1> details 2 page 1!</h1>
+            </div>
+            <div class="details" slide="3" style="z-index: 5;">
+              <h1> details 2 page 2!</h1>
+            </div>
+          </div>
+          
+          <div class="page">
+            <div class="herbier" slide="1">
+              <img src="../data/3-BERBERIS_ARISTATA/mhnn.b.10101.167.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            </div>
+            <div class="details" slide="2" style="z-index: 4;">
+              <h1> details 3 page 1!</h1>
+            </div>
+            <div class="details" slide="3" style="z-index: 5;">
+              <h1> details 3 page 2!</h1>
+            </div>
           </div>
           <div class="page">
-            <img src="../data/3-BERBERIS_ARISTATA/mhnn.b.10101.167.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            <div class="herbier" slide="1">
+              <img src="../data/4-RANUNCULUS_FICARIA/mhnn.b.10101.110.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            </div>
+            <div class="details" slide="2" style="z-index: 4;">
+              <h1> details 4 page 1!</h1>
+            </div>
+            <div class="details" slide="3" style="z-index: 5;">
+              <h1> details 4 page 2!</h1>
+            </div>
           </div>
           <div class="page">
-            <img src="../data/4-RANUNCULUS_FICARIA/mhnn.b.10101.110.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-          </div>
-          <div class="page">
-            <img src="../data/5-AKEBIA_QUINATA/mhnn.b.10101.161.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            <div class="herbier" slide="1">
+              <img src="../data/5-AKEBIA_QUINATA/mhnn.b.10101.161.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+            </div>
+            <div class="details" slide="2" style="z-index: 4;">
+              <h1> details 5 page 1!</h1>
+            </div>
+            <div class="details" slide="3" style="z-index: 5;">
+              <h1> details 5 page 2!</h1>
+            </div>
           </div>
           <div class="page ">
             <img src="../data/0-Sommaire/page_fin.png " style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
