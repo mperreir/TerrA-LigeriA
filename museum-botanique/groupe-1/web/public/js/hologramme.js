@@ -1,6 +1,6 @@
 window.onload = () => {
     const socket = io();
-    
+
     const nbImageOnithopus = 250;
     const nbImageAngelica = 240;
 
@@ -48,9 +48,30 @@ window.onload = () => {
         imagesAngelica.push(img);
     }
 
+    let currentHologramme = "ornithopus";
+
     socket.on('hologramme', (data) => {
-        let angle = data.value;
-        let numImageToShow = Math.round(angle * ImagePerAngleAngelica);
-        document.querySelector('img').src = imagesAngelica[numImageToShow].src;
+
+        if (data.action === " hologrammeChange") {
+
+            currentHologramme = data.value;
+            document.querySelector('img').src = imagesOrni[0].src;
+
+        } else if (data.action === "angle") {
+            let angle = data.value;
+
+            switch (currentHologramme) {
+                case "ornithopus":
+                    let numImageToShowOrnithopus = Math.round(angle * ImagePerAngleOnithopus);
+                    document.querySelector('img').src = imagesOrni[numImageToShowOrnithopus].src;
+                    break;
+                case "angelica":
+                    let numImageToShowAngelica = Math.round(angle * ImagePerAngleAngelica);
+                    document.querySelector('img').src = imagesAngelica[numImageToShowAngelica].src;
+                    break;
+            }
+
+        }
+
     })
 }

@@ -32,6 +32,11 @@ window.onload = () => {
             value: document.querySelector('.swiper-slide-active').dataset.id
         });
 
+        socket.emit("hologramme", {
+            action: "hologrammeChange",
+            value: document.querySelector('.swiper-slide-active').dataset.id
+        });
+
         socket.emit("telephone", {
             action: "refresh",
             value: true
