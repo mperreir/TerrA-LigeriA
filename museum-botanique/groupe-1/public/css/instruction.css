@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: local('Montserrat'), url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: local('Montserrat-SemiBold'), url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat-SemiBold', sans-serif;
+}
+
+/* Swiper*/
+.swiper {
+    width: 80%;
+    height: 500px;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-prev {
+    position: relative;
+    top: 100px;
+    color: #4CB55D;
+    scale: 0.7;
+}
+
+.swiper-button-next {
+    top: 100px;
+    color: #4CB55D;
+    scale: 0.7;
+
+}
+
+.swiper-wrapper {
+    position: absolute;
+}
+/****************************/
+
+/* contenu du swiper */
+#name {
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+    top: 55px;
+    position: absolute;
+}
+
+.flower {
+    position: absolute;
+    z-index: 20;
+    top: 150px;
+    width: 50%;
+}
+/****************************/
+
+/* ellipse */
+.ellipse {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+.container_ellipse {
+    margin: 0px 100px;
+}
+/****************************/
+
+.instruction {
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    bottom: 250px;
+    z-index:20;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.instruction p {
+    margin: 10px;
+}
+
+.restart {
+    right: 20px;
+    bottom: 20px;
+    height: 50px;
+    position: absolute;
+}
