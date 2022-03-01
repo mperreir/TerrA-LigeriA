@@ -25,7 +25,7 @@ sound9=pygame.mixer.Sound("Sons/B.2.4.wav")
 
 
 
-saison= "E"
+saison= ""
 zone= 0
 
 
@@ -44,6 +44,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     break
                 data = data.decode('UTF-8')
 
+                print(data)
                 if data in ['E','H']:
                     saison = data
                 else:
@@ -57,7 +58,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         sound4.stop()
 
                         sound.play(-1)
-                        print(zone)
                     elif zone == 2: 
                         sound.stop()
                         sound2.stop()
@@ -66,7 +66,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
 
                         sound1.play(-1)
-                        print(zone)
                     elif zone == 3:
                         sound1.stop()
                         sound.stop()
@@ -81,7 +80,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         sound4.stop()
 
                         sound3.play(-1)
-                        print(zone)
                     elif zone == 0:
                         sound1.stop()
                         sound2.stop()
@@ -89,17 +87,24 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         sound.stop()
 
                         sound4.play(-1)
-                if saison == "H":
+                elif saison == "H":
                         if zone==1:
+                            mixer.stop()
                             sound5.play(-1)
                         elif zone==2: 
+                            mixer.stop()
                             sound6.play(-1)
                         elif zone==3:
+                            mixer.stop()
                             sound7.play(-1)
                         elif zone==4:
+                            mixer.stop()
                             sound8.play(-1)
-                        elif zone==0: 
+                        elif zone==0:
+                            mixer.stop()
                             sound9.play(-1)
+                else:
+                    mixer.stop()
 
 
 

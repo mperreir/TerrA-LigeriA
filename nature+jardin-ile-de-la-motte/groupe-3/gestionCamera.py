@@ -151,13 +151,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if compteurImage == 60:
             if whiteSumMean > greenSumMean and whiteSumMean > blackSumMean:
                 color = "White"
-                value = "Vide"
+                value = ""
             elif greenSumMean > whiteSumMean and greenSumMean > blackSumMean:
                 color = "Green"
-                value = "Ete"
+                value = "E"
             elif blackSumMean > greenSumMean and blackSumMean > whiteSumMean:
                 color = "Black"
-                value = "Hiver"
+                value = "H"
 
             if previousColor != color:
                 #print(color)
