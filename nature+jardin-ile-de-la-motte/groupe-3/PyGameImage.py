@@ -84,7 +84,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         with conn:
             print("Connected by", addr)
             image = rien
-            while True:
+            while not running:
                 data = conn.recv(1024)
                 if not data:
                     break
@@ -92,45 +92,45 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print(data)
 
                 saison = 'E'
-
-                fadeIn(image, img_center)
-
-                if saison == "E":
-                    if data == "1":
-                        print("e1")
-                        fadeOut(image, img_center)
-                        image = E1
-                    elif data == "2":
-                        print("e2")
-                        fadeOut(image, img_center)
-                        image = E2
-                    elif data == "3":
-                        fadeOut(image, img_center)
-                        image = E3
-                    elif data == "4":
-                        fadeOut(image, img_center)
-                        image = E4
-                    else:
-                        fadeOut(image, img_center)
-                        image = rien
-                elif saison == "H":
-                    if data == "1":
-                        fadeOut(image, img_center)
-                        image = H1
-                    elif data == "2":
-                        fadeOut(image, img_center)
-                        image = H2
-                    elif data == "3":
-                        fadeOut(image, img_center)
-                        image = H3
-                    elif data == "4":
-                        fadeOut(image, img_center)
-                        image = H4
-                    else:
-                        fadeOut(image, img_center)
-                        image = rien
-
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = True
                     fadeIn(image, img_center)
+                    if saison == "E":
+                        if data == "1":
+                            print("e1")
+                            fadeOut(image, img_center)
+                            image = E1
+                        elif data == "2":
+                            print("e2")
+                            fadeOut(image, img_center)
+                            image = E2
+                        elif data == "3":
+                            fadeOut(image, img_center)
+                            image = E3
+                        elif data == "4":
+                            fadeOut(image, img_center)
+                            image = E4
+                        else:
+                            fadeOut(image, img_center)
+                            image = rien
+                    elif saison == "H":
+                        if data == "1":
+                            fadeOut(image, img_center)
+                            image = H1
+                        elif data == "2":
+                            fadeOut(image, img_center)
+                            image = H2
+                        elif data == "3":
+                            fadeOut(image, img_center)
+                            image = H3
+                        elif data == "4":
+                            fadeOut(image, img_center)
+                            image = H4
+                        else:
+                            fadeOut(image, img_center)
+                            image = rien
+
 
 
 # Event loop
