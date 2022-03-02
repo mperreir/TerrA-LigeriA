@@ -1,6 +1,9 @@
-const seuilMouvementHorizontal = 500;
-const seuilMouvementVertical = 1300
+const seuilMouvementHorizontal = 200;
+const seuilMouvementVertical = 350
 const tempsAttente = 75;
+const xLimit = 125;
+const yLimit = 600;
+const zLimit = 100;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -19,7 +22,7 @@ controller.loop(function(frame) {
     const d = new Date();
 
     if(!doitAttendre){
-        if (frame.hands[0]){
+        if (frame.hands[0] && isInPosition(frame.hands[0].palmPosition)){
             const actionRealisee = gererMouvement(frame.hands[0]);
             if (actionRealisee) {
                 doitAttendre = true;
@@ -45,6 +48,10 @@ controller.loop(function(frame) {
 });
 
 
+
+function isInPosition(position){
+    return (Math.abs(position[0]) < xLimit) && (Math.abs(position[1]) < yLimit) && (Math.abs(position[2]) < zLimit)
+}
 
 function gererMouvement(hand){
     const xVelocity = hand.palmVelocity[0];

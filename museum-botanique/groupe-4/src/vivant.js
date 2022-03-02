@@ -59,8 +59,8 @@ document.addEventListener('slideRight', (evt) => {
             }
             currentPage++;
         }
-        swiper1.slideNext(1250);
-        swiper2.slideNext(1250);
+        swiper1.slideNext(1500);
+        swiper2.slideNext(1500);
     }
     else {
         inDetails = false;
