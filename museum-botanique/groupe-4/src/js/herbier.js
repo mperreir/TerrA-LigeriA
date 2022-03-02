@@ -1,4 +1,3 @@
-let currentPage = 1
 var configObject = {
     autoSave: false,
     autoLoad: false,
@@ -19,7 +18,7 @@ document.addEventListener('slideLeft', (evt) => {
 
 document.addEventListener('slideRight', (evt) => {
     window.postMessage("Prev","*")
-    if (currentPage < 5){
+    if (currentPage < maxIndexPage){
         $('.active')
             .toggleClass('active flipped')
             .next('.page')

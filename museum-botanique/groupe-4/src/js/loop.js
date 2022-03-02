@@ -5,6 +5,8 @@ var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
 var tps_inactif
+var currentPage = 1;
+const maxIndexPage = 7;
 
 const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')
@@ -49,17 +51,28 @@ function gererMouvement(hand){
     const yVelocity = hand.palmVelocity[1];
 
     if ((Math.abs(xVelocity) >= seuilMouvementHorizontal) && (Math.abs(xVelocity) / seuilMouvementHorizontal ) >= ( Math.abs(yVelocity) / seuilMouvementVertical )){
-        if (active_slide === 2)
-            document.dispatchEvent(evtUp);
-        else if (xVelocity>0)
-            document.dispatchEvent(evtLeft);
-        else
-            document.dispatchEvent(evtRight);
-        return true;
+        if (active_slide == 1){
+            if (xVelocity>0)
+                document.dispatchEvent(evtLeft);
+            else
+                document.dispatchEvent(evtRight);
+            return true;
+        }
     }
     else if (Math.abs(yVelocity) >= seuilMouvementVertical){
-        document.dispatchEvent(evtUp);
-        return true;
+        if (currentPage != 1 || currentPage != 5){
+            if (yVelocity > 0) {
+                    active_slide = active_slide + 1;
+                    if (active_slide >= 3) active_slide = 3;
+                    document.dispatchEvent(evtUp);
+            }
+            else {
+                document.dispatchEvent(evtDown);
+                active_slide = active_slide - 1;
+                if (active_slide <= 1) active_slide = 1
+            }
+            return true;
+        }
     }
     return false;
 }
@@ -92,7 +105,6 @@ document.onkeydown = e => {
        //right arrow
        if (active_slide == 1){
         document.dispatchEvent(evtRight);
-
        }
     }    
 }
