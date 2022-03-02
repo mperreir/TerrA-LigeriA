@@ -1,9 +1,9 @@
 const seuilMouvementHorizontal = 200;
 const seuilMouvementVertical = 350
-const tempsAttente = 75;
-const xLimit = 125;
+const tempsAttente = 100;
+const xLimit = 150;
 const yLimit = 600;
-const zLimit = 100;
+const zLimit = 150;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -67,7 +67,7 @@ function gererMouvement(hand){
         }
     }
     else if (Math.abs(yVelocity) >= seuilMouvementVertical){
-        if (currentPage != 1 || currentPage != 5){
+        if (currentPage > 1 && currentPage < 5){
             if (yVelocity > 0) {
                     active_slide = active_slide + 1;
                     if (active_slide >= 3) active_slide = 3;
