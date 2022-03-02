@@ -1,22 +1,42 @@
 # Herbier intéractif, immersif 
 
-## Introduction 
+## Présentation 
 
 **Groupe 4 - Botanique, Distance - Projection**
 
-**EDNA**
-- Elise Croguennoc
-- Juliette Rosenbaum
-- Marie Sambron
-- Owen Schneider
-- Paul Maurin
-- Sophie Lambert  
+**EDNA** | **Polytech**
+| --- | --- |
+Elise Croguennoc | Antoine Zuber
+Juliette Rosenbaum | Antoine Eluere
+Marie Sambron | Houssem Kacemi
+Owen Schneider | Iheb Landoulsi
+Paul Maurin | - 
+Sophie Lambert |  -
 
-**Polytech**
-- Antoine Zuber
-- Antoine Eluere
-- Houssem Kacemi
-- Iheb Landoulsi
+
+## Introduction 
+
+Cette documentation indique l'essentiel de ce qu'il faut savoir pour pouvoir reproduire le projet developpé pour le Terr-Ligeria. 
+L'ensemble du code officiel pour tous les projets, ce lien de Github et est tenu par un professeur de Polytech Nantes : https://github.com/mperreir/TerrA-LigeriA .
+
+Le lien du groupe sur lequel ont à pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionner avec l'original. 
+
+La récupération du code source ce fait en téléchargeant un dossier zip gràce au bouton **Code** en vert sur la page principale du lien <a href="https://github.com/Antoine-Zuber/TerrA-LigeriA"> ici</a>  (voir photo ci dessous).
+
+<img src="./img-doc/bouton-code.png"/>  
+
+Pour trouver le dossier avec le code source il est nécessaire de se retrouver au bonne endroit qui est donc : 
+```
+Terra-Ligeria/musee-botanique/groupe-4/
+``` 
+
+De là, vous devriez avoir l'ensemble des dossiers et fichiers nécéssaire pour lancer les 2 vues du projet `VueVivant.html`, qui se place avec à gauche l'environnement et à droite le panneau avec le tulle. Et `VueHerbier.html` qui se place directement sur le pan du module à droite. 
+
+Pour une meilleur appréciation et immersion, il faut entrer en mode plein écran avec la touche **F11** (Fn + F11 si le FnLock est activé)
+
+Les images sont déplaçable grace à la librairie Maptastic. Pour activer le déplacement/rotation, il faut entrer en mode édition avec Space + Shift. 
+L'ensemble des instruction sont sur ce lien : https://github.com/glowbox/maptasticjs/blob/master/README.md.
+
 
 ## Installation
 ### Leap Motion
