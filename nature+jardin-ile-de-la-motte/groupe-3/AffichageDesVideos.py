@@ -14,7 +14,7 @@ import socket
 #img2 = cv2.imread("./Images/Phragmite_des_jocs.png")
 
 
-plateau = cv.imread("./Videos/Plateau.mp4")
+plateau = cv.VideoCapture("./Videos/Plateau.mp4")
 
 e0 = cv.VideoCapture("./Videos/Estivale.mp4")
 e1 = cv.VideoCapture("./Videos/Aigrette_garzette.mp4")
@@ -32,13 +32,16 @@ h4bis = cv.VideoCapture("./Videos/Courlis_cendre.mp4")
 
 val_e3 = True
 val_h4 = True
-
+vid = plateau
+ret, frame = vid.read()
+frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
 cv.namedWindow("window", cv.cv2.WND_PROP_FULLSCREEN)
 cv.setWindowProperty("window",cv.WND_PROP_FULLSCREEN,cv.WINDOW_FULLSCREEN)
-dim = plateau.shape
+dim = frame.shape
 blackscreen = np.zeros((dim[1],dim[0],3), np.uint8)
 
-
+zone = 0
+saison = "R"
 
 HOST = '127.0.0.1'
 PORT = 65432
@@ -52,12 +55,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     
         with conn:
             print("Connected by", addr)
-            vid = plateau
-            frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
-            while True:
+            while vid.isOpened():
                 data = conn.recv(1024)
-                if not data:
-                    break
+
                 data = data.decode('UTF-8')
 
                 if data in ['E','H','R']:

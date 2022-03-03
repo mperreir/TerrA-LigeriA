@@ -125,9 +125,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         subImageWhite = whiteFrame[125:125+50, 50:50+325]
         subImageGreen = greenFrame[125:125+50, 50:50+325]
         subImageBlack = blackFrame[125:125+50, 50:50+325]
-        cv2.imshow("white",subImageWhite)
-        cv2.imshow("green",subImageGreen)
-        cv2.imshow("black",subImageBlack)
+        # cv2.imshow("white",subImageWhite)
+        # cv2.imshow("green",subImageGreen)
+        # cv2.imshow("black",subImageBlack)
 
         #On récupère la moyenne des valeurs des pixels de la région pour déterminer
         #a quelle couleur elle correspond
