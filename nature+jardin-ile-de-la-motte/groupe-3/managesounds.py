@@ -45,46 +45,31 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 data = data.decode('UTF-8')
 
                 print(data)
-                if data in ['E','H']:
+                if data in ['E','H','R']:
                     saison = data
                 else:
                     zone = int(data)
 
                 if saison == "E" :
                     if zone == 1:
-                        sound1.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        mixer.stop()
 
                         sound.play(-1)
                     elif zone == 2: 
-                        sound.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        mixer.stop()
 
 
                         sound1.play(-1)
                     elif zone == 3:
-                        sound1.stop()
-                        sound.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        mixer.stop()
 
                         sound2.play(-1)
                     elif zone == 4:
-                        sound1.stop()
-                        sound2.stop()
-                        sound.stop()
-                        sound4.stop()
+                        mixer.stop()
 
                         sound3.play(-1)
                     elif zone == 0:
-                        sound1.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound.stop()
+                        mixer.stop()
 
                         sound4.play(-1)
                 elif saison == "H":
