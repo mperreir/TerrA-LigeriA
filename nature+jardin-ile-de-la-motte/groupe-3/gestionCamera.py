@@ -162,7 +162,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 color = "Black"
                 value = "H"
             print(color)
-            if previousColor != color:
+            if previousColor != color or color == "White":
                 #print(color)
                 s.sendall(str(value).encode())
                 previousColor = color
