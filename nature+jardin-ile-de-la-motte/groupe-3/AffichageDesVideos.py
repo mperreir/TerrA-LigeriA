@@ -4,16 +4,6 @@ import numpy as np
 import cv2 as cv
 import socket
 
-# drawing1 = svg2rlg("./Images/img1.svg")
-# renderPM.drawToFile(drawing1, "./Images/img1.png", fmt="PNG")
-
-# drawing2 = svg2rlg("./Images/img2.svg")
-# renderPM.drawToFile(drawing2, "./Images/img2.png", fmt="PNG")
-
-#img1 = cv2.imread("./Images/img1.png")
-#img2 = cv2.imread("./Images/Phragmite_des_jocs.png")
-
-
 plateau = cv.VideoCapture("./Videos/Plateau.mp4")
 
 e0 = cv.VideoCapture("./Videos/Estivale.mp4")
@@ -32,16 +22,13 @@ h4bis = cv.VideoCapture("./Videos/Courlis_cendre.mp4")
 
 val_e3 = True
 val_h4 = True
-vid = plateau
-ret, frame = vid.read()
-frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
+
 cv.namedWindow("window", cv.cv2.WND_PROP_FULLSCREEN)
 cv.setWindowProperty("window",cv.WND_PROP_FULLSCREEN,cv.WINDOW_FULLSCREEN)
-dim = frame.shape
+dim = plateau.shape
 blackscreen = np.zeros((dim[1],dim[0],3), np.uint8)
 
-zone = 0
-saison = "R"
+
 
 HOST = '127.0.0.1'
 PORT = 65432
@@ -55,9 +42,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     
         with conn:
             print("Connected by", addr)
-            while vid.isOpened():
+            vid = plateau
+            frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
+            while True:
                 data = conn.recv(1024)
-
+                if not data:
+                    break
                 data = data.decode('UTF-8')
 
                 if data in ['E','H','R']:
@@ -65,9 +55,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     print(saison)
                 else:
                     zone = int(data)
-
-                ret, frame = vid.read()
-                frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)
+                
+                i = 0
 
                 if saison == "E":
                     if zone == 1:
@@ -103,9 +92,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         vid = h0
                 elif saison == "R":
                     vid = plateau
-                cv.imshow("window", frame)
-                if cv.waitKey(1) & 0xFF == ord('q'):
-                    exit()
+
+                while i <= 22:
+                    ret, frame = vid.read()
+                    frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)    
+                    cv.imshow("window", frame)
+                    i += 1
+                    if cv.waitKey(1) & 0xFF == ord('q'):
+                        exit()
 
     
         
