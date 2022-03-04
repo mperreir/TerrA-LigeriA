@@ -1,9 +1,9 @@
-const seuilMouvementHorizontal = 200;
-const seuilMouvementVertical = 350
+const seuilMouvementHorizontal = 250;
+const seuilMouvementVertical = 300;
 const tempsAttente = 100;
-const xLimit = 150;
-const yLimit = 600;
-const zLimit = 150;
+const xLimit = 200;
+const yLimit = 800;
+const zLimit = 200;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -15,6 +15,7 @@ const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')
 const evtUp = new CustomEvent('slideUp')
 const evtDown = new CustomEvent('slideDown')
+const evtRefresh = new CustomEvent('refresh');
 
 
 const controller = new Leap.Controller();
@@ -43,7 +44,9 @@ controller.loop(function(frame) {
         tps_inactif = d.getTime();
     }
     if (d.getTime() - tps_inactif > 20 * 1000) {
-        history.go(0)
+        //history.go(0)
+        document.dispatchEvent(evtRefresh);
+        tps_inactif = d.getTime();
     }
 });
 
@@ -83,7 +86,7 @@ function gererMouvement(hand){
     }
     return false;
 }
-document.onkeydown = e => {
+/*document.onkeydown = e => {
     e = e || window.event;
 
     if (e.keyCode == '38') {
@@ -114,4 +117,4 @@ document.onkeydown = e => {
         document.dispatchEvent(evtRight);
        }
     }    
-}
+}*/

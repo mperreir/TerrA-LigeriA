@@ -18,12 +18,14 @@ const swiper2 = new Swiper('#divimage', {
         crossFade: true
     }})
 
-let inDetails = false;
+var etatInitial = document.getElementById("main").cloneNode(true);
+
+let niveauDetails = 0;
     
-document.addEventListener('slideLeft', (evt) => {
-    if (!inDetails){
+function onSlideLeft() {
+    if (niveauDetails==0){
         if (currentPage > 0){
-            if (currentPage - 1 > 1) {
+            if (currentPage > 1) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioPrecedent = $('#audio' + (currentPage - 1))[0];
 
@@ -33,21 +35,29 @@ document.addEventListener('slideLeft', (evt) => {
                     audioPrecedent.play();
                     $(audioPrecedent).animate({volume:1.0},750);
                 },750);
+                currentPage--;
             }
-            currentPage--;
+            else{
+                const audioActive = $('#audio' + currentPage)[0];
+                const audioPrecedent = $('#audio' + maxIndexPage)[0];
+
+                $(audioActive).animate({volume:0.0}, 750);
+                setTimeout(()=>{
+                    audioActive.pause();
+                    audioPrecedent.play();
+                    $(audioPrecedent).animate({volume:1.0},750);
+                },750);
+                currentPage = maxIndexPage
+            }
         }
         swiper1.slidePrev(1250);
         swiper2.slidePrev(1250);
     }
-    else {
-        inDetails = false;
-    }
-})
+}
     
-document.addEventListener('slideRight', (evt) => {
-    if (!inDetails){
+function onSlideRight() {
+    if (niveauDetails == 0){
         if (currentPage < maxIndexPage){
-            if (currentPage + 1 < 5) {
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioSuivant = $('#audio' + (currentPage + 1))[0];
                 $(audioActive).animate({volume:0.0},750);
@@ -56,19 +66,66 @@ document.addEventListener('slideRight', (evt) => {
                     audioSuivant.play();
                     $(audioSuivant).animate({volume:1.0},750);
                 },750);
-            }
             currentPage++;
+        }
+        else{
+            const audioActive = $('#audio' + maxIndexPage)[0];
+            const audioSuivant = $('#audio1')[0];
+            $(audioActive).animate({volume:0.0},750);
+            setTimeout(()=>{
+                audioActive.pause();
+                audioSuivant.play();
+                $(audioSuivant).animate({volume:1.0},750);
+            },750);
+        currentPage=1;
         }
         swiper1.slideNext(1500);
         swiper2.slideNext(1500);
     }
-    else {
-        inDetails = false;
-    }
-})
+}
 
-document.addEventListener('slideUp', (evt) => {
-    inDetails = !inDetails;
-})
+
+function onSlideUp() {
+    niveauDetails = Math.min(niveauDetails+1,2);
+}
+
+function onSlideDown() {
+    niveauDetails = Math.max(niveauDetails-1,0);
+}
+
+function resetAudio(){
+    const audios = document.getElementsByTagName("audio");
+    for (let i = 1; i<audios.length;i++){
+        audios[i].pause();
+        audios[i].volume = 0.0;
+    }
+    audios[0].volume=1.0;
+    audios[0].play();
     
+}
+
+function onRefresh(){
+    document.getElementById("main").remove();
+    document.getElementById("body").appendChild(etatInitial);
+    etatInitial = etatInitial.cloneNode(true);
+    currentPage = 1;
+    resetAudio();
+}
     
+window.addEventListener("message", (event) => {
+    if (event.data == "slideLeft"){
+        onSlideLeft();
+    }
+    if (event.data == "slideRight"){
+        onSlideRight();
+    }
+    if (event.data == "slideUp"){
+        onSlideUp();
+    }
+    if (event.data == "slideDown"){
+        onSlideDown();
+    }
+    if (event.data == "refresh"){
+        onRefresh();
+    }
+  }, false);
