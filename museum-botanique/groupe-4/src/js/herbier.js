@@ -1,6 +1,6 @@
 var configObject = {
-    autoSave: false,
-    autoLoad: false,
+    autoSave: true,
+    autoLoad: true,
     layers: ["scene"]
 };
 var maptastic = Maptastic(configObject);
@@ -79,4 +79,6 @@ document.addEventListener('refresh',(evt)=>{
     body.appendChild(etatInitial);
     etatInitial = etatInitial.cloneNode(true);
     currentPage = 1;
+    configObject.layers=['scene'];
+    maptastic = Maptastic(configObject);
 })

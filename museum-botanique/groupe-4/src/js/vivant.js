@@ -21,7 +21,9 @@ const swiper2 = new Swiper('#divimage', {
 var etatInitial = document.getElementById("main").cloneNode(true);
 
 let niveauDetails = 0;
-    
+
+var currentPage = 1;
+
 function onSlideLeft() {
     if (niveauDetails==0){
         if (currentPage > 0){
@@ -94,22 +96,23 @@ function onSlideDown() {
 }
 
 function resetAudio(){
-    const audios = document.getElementsByTagName("audio");
+    /*const audios = document.getElementsByTagName("audio");
     for (let i = 1; i<audios.length;i++){
         audios[i].pause();
         audios[i].volume = 0.0;
     }
     audios[0].volume=1.0;
-    audios[0].play();
-    
+    audios[0].play();*/
 }
 
 function onRefresh(){
-    document.getElementById("main").remove();
+   /* document.getElementById("main").remove();
     document.getElementById("body").appendChild(etatInitial);
     etatInitial = etatInitial.cloneNode(true);
     currentPage = 1;
-    resetAudio();
+    resetAudio();*/
+    location.reload();
+
 }
     
 window.addEventListener("message", (event) => {
