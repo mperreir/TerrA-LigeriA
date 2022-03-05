@@ -23,10 +23,10 @@ sound7=pygame.mixer.Sound("Sons/B.2.2.wav")
 sound8=pygame.mixer.Sound("Sons/B.2.3.wav")
 sound9=pygame.mixer.Sound("Sons/B.2.4.wav")
 
-
-
 saison= ""
 zone= 0
+
+channel1 = pygame.mixer.Channel(0)
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -45,67 +45,78 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 data = data.decode('UTF-8')
 
                 print(data)
-                if data in ['E','H']:
+                if data in ['E','H','R']:
                     saison = data
                 else:
                     zone = int(data)
 
                 if saison == "E" :
+
                     if zone == 1:
-                        sound1.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound,loops=-1,fade_ms=500)
 
-                        sound.play(-1)
                     elif zone == 2: 
-                        sound.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound1,loops=-1,fade_ms=500)
 
-
-                        sound1.play(-1)
                     elif zone == 3:
-                        sound1.stop()
-                        sound.stop()
-                        sound3.stop()
-                        sound4.stop()
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound2,loops=-1,fade_ms=500)
 
-                        sound2.play(-1)
                     elif zone == 4:
-                        sound1.stop()
-                        sound2.stop()
-                        sound.stop()
-                        sound4.stop()
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound3,loops=-1,fade_ms=500)
 
-                        sound3.play(-1)
                     elif zone == 0:
-                        sound1.stop()
-                        sound2.stop()
-                        sound3.stop()
-                        sound.stop()
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound4,loops=-1,fade_ms=500)
 
-                        sound4.play(-1)
                 elif saison == "H":
-                        if zone==1:
-                            mixer.stop()
-                            sound5.play(-1)
-                        elif zone==2: 
-                            mixer.stop()
-                            sound6.play(-1)
-                        elif zone==3:
-                            mixer.stop()
-                            sound7.play(-1)
-                        elif zone==4:
-                            mixer.stop()
-                            sound8.play(-1)
-                        elif zone==0:
-                            mixer.stop()
-                            sound9.play(-1)
-                else:
-                    mixer.stop()
 
+                    if zone==1:
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound5,loops=-1,fade_ms=500)
+
+                    elif zone==2: 
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound6,loops=-1,fade_ms=500)
+
+                    elif zone==3:
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound7,loops=-1,fade_ms=500)
+
+                    elif zone==4:
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound8,loops=-1,fade_ms=500)
+
+                    elif zone==0:
+                        channel1.fadeout(500)
+                        while channel1.get_busy():
+                             pass
+                        channel1.play(sound9,loops=-1,fade_ms=500)
+                else:
+                    channel1.fadeout(500)
+                    while channel1.get_busy():
+                        pass
 
 
 
