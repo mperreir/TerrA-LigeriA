@@ -10,7 +10,7 @@ PORT = 65432
 
 #Connexion à la caméra
 #Sur PC portable : 0 = caméra interne, 1 = caméra externe
-cam = cv2.VideoCapture(1,cv2.CAP_DSHOW)
+cam = cv2.VideoCapture(0)
   
 if not cam.isOpened():
     print("Cannot open camera")

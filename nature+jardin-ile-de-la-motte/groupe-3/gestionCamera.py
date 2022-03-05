@@ -89,7 +89,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 else:
                     val = 0
 
-                if prec != val:
+                if prec != val or val == 0:
                     s.sendall(str(val).encode())
                     prec = val
 
@@ -103,11 +103,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         lowWhiteLimit = np.array([0, 0, 150])  #Mise en place du seuil HSV limite bas du blanc
         upWhiteLimit = np.array([100, 75, 255])  #Mise en place du seuil HSV limite haut du blanc
 
-        lowGreenLimit = np.array([30, 50, 50]) #Mise en place du seuil HSV limite bas du vert
-        upGreenLimit = np.array([70, 255, 255]) #Mise en place du seuil HSV limite haut du vert
+        lowGreenLimit = np.array([70, 125, 0]) #Mise en place du seuil HSV limite bas du vert
+        upGreenLimit = np.array([100, 255, 255]) #Mise en place du seuil HSV limite haut du vert
 
-        lowBlackLimit = np.array([100, 0, 0]) #Mise en place du seuil HSV limite bas du noir
-        upBlackLimit = np.array([200, 50, 125]) #Mise en place du seuil HSV limite haut du noir
+        lowBlackLimit = np.array([90, 50, 50]) #Mise en place du seuil HSV limite bas du noir
+        upBlackLimit = np.array([110, 150, 150]) #Mise en place du seuil HSV limite haut du noir
 
         #Création des masques correspondant à chaque couleur
         whiteMask = cv2.inRange(imgHSV, lowWhiteLimit, upWhiteLimit)
@@ -125,6 +125,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         subImageWhite = whiteFrame[125:125+50, 50:50+325]
         subImageGreen = greenFrame[125:125+50, 50:50+325]
         subImageBlack = blackFrame[125:125+50, 50:50+325]
+        # cv2.imshow("white",subImageWhite)
+        # cv2.imshow("green",subImageGreen)
+        # cv2.imshow("black",subImageBlack)
 
         #On récupère la moyenne des valeurs des pixels de la région pour déterminer
         #a quelle couleur elle correspond
@@ -151,15 +154,15 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if compteurImage == 60:
             if whiteSumMean > greenSumMean and whiteSumMean > blackSumMean:
                 color = "White"
-                value = ""
+                value = "R"
             elif greenSumMean > whiteSumMean and greenSumMean > blackSumMean:
                 color = "Green"
                 value = "E"
             elif blackSumMean > greenSumMean and blackSumMean > whiteSumMean:
                 color = "Black"
                 value = "H"
-
-            if previousColor != color:
+            print(color)
+            if previousColor != color or color == "White":
                 #print(color)
                 s.sendall(str(value).encode())
                 previousColor = color

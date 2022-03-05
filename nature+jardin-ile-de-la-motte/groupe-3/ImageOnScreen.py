@@ -52,18 +52,20 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not data:
                     break
                 data = data.decode('UTF-8')
-                print(data)
+                
 
-                saison = "E"
+                if data in ['E','H','R']:
+                    saison = data
+                    print(saison)
+                else:
+                    zone = int(data)
 
                 cv2.imshow("window", image)
 
                 if saison == "E":
                     if data == "1":
-                        print("e1")
                         image = e1
                     elif data == "2":
-                        print("e2")
                         image = e2
                     elif data == "3":
                         image = e3
@@ -82,6 +84,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         image = h4
                     else:
                         image = rien
+                elif saison == "R":
+                    image = rien
 
                 cv2.imshow("window", image)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
