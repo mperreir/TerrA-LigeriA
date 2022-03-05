@@ -1,5 +1,3 @@
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPM
 import numpy as np
 import cv2 as cv
 import socket
@@ -49,7 +47,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         with conn:
             print("Connected by", addr)
             while True:
-                print("attente de data")
                 data = conn.recv(1024)
                 if not data:
                     break
@@ -77,7 +74,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                             val_e3 = not val_e3
                     elif zone == 4:
                         vid = e4
-                    elif zone == 0:
+                    else:
                         vid = e0
                 elif saison == "H":
                     if zone == 1:
@@ -93,18 +90,19 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         else:
                             vid = h4bis
                             val_h4 = not val_h4
-                    elif zone == 0:
+                    else:
                         vid = h0
                 elif saison == "R":
                     vid = plateau
+                    zone = 0
 
-                while i <= 22:
+                while i <= 36:
                     ret, frame = vid.read()
                     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)    
                     cv.imshow("window", frame)
                     i += 1
                     if cv.waitKey(1) & 0xFF == ord('q'):
                         exit()
-                vid.set(cv.CV_CAP_PROP_POS_FRAMES,0)
+                vid.set(1,0)
         
 
