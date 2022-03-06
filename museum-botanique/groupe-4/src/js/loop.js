@@ -10,6 +10,7 @@ var active_slide = 1;
 var tps_inactif
 var currentPage = 1;
 const maxIndexPage = 7;
+const maxSlides = 4;
 
 const evtLeft = new CustomEvent('slideLeft')
 const evtRight = new CustomEvent('slideRight')
@@ -73,7 +74,7 @@ function gererMouvement(hand){
         if (currentPage > 1 && currentPage < 5){
             if (yVelocity > 0) {
                     active_slide = active_slide + 1;
-                    if (active_slide >= 3) active_slide = 3;
+                    if (active_slide >= maxSlides) active_slide = maxSlides;
                     document.dispatchEvent(evtUp);
             }
             else {
@@ -86,14 +87,15 @@ function gererMouvement(hand){
     }
     return false;
 }
-/*document.onkeydown = e => {
+
+document.onkeydown = e => {
     e = e || window.event;
 
     if (e.keyCode == '38') {
             if (currentPage != 1) { 
             //up arrow
             active_slide = active_slide + 1;
-            if (active_slide >= 3) active_slide = 3
+            if (active_slide >= maxSlides) active_slide = maxSlides
             document.dispatchEvent(evtUp);
         }
     }
@@ -117,4 +119,4 @@ function gererMouvement(hand){
         document.dispatchEvent(evtRight);
        }
     }    
-}*/
+}
