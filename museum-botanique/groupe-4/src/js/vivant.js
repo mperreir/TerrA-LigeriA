@@ -1,6 +1,6 @@
 var configObject = {
-    autoSave: false,
-    autoLoad: false,
+    autoSave: true,
+    autoLoad: true,
     layers: ["divimage","environement"]
 };
 var maptastic = Maptastic(configObject);
@@ -25,7 +25,6 @@ let niveauDetails = 0;
 var currentPage = 1;
 
 function onSlideLeft() {
-    if (niveauDetails==0){
         if (currentPage > 0){
             if (currentPage > 1) {
                 const audioActive = $('#audio' + currentPage)[0];
@@ -55,10 +54,8 @@ function onSlideLeft() {
         swiper1.slidePrev(1250);
         swiper2.slidePrev(1250);
     }
-}
     
 function onSlideRight() {
-    if (niveauDetails == 0){
         if (currentPage < maxIndexPage){
                 const audioActive = $('#audio' + currentPage)[0];
                 const audioSuivant = $('#audio' + (currentPage + 1))[0];
@@ -84,7 +81,6 @@ function onSlideRight() {
         swiper1.slideNext(1500);
         swiper2.slideNext(1500);
     }
-}
 
 
 function onSlideUp() {

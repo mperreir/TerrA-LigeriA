@@ -1,9 +1,9 @@
-const seuilMouvementHorizontal = 250;
-const seuilMouvementVertical = 300;
+const seuilMouvementHorizontal = 175;
+const seuilMouvementVertical = 375;
 const tempsAttente = 100;
-const xLimit = 200;
-const yLimit = 800;
-const zLimit = 200;
+const xLimit = 1000;
+const yLimit = 1000;
+const zLimit = 1000;
 var doitAttendre = false;
 var compteur = 0;
 var active_slide = 1;
@@ -44,7 +44,7 @@ controller.loop(function(frame) {
     if (frame.hands.length > 0) {
         tps_inactif = d.getTime();
     }
-    if (d.getTime() - tps_inactif > 20 * 1000) {
+    if (d.getTime() - tps_inactif > 60 * 1000) {
         //history.go(0)
         document.dispatchEvent(evtRefresh);
         tps_inactif = d.getTime();
@@ -62,16 +62,14 @@ function gererMouvement(hand){
     const yVelocity = hand.palmVelocity[1];
 
     if ((Math.abs(xVelocity) >= seuilMouvementHorizontal) && (Math.abs(xVelocity) / seuilMouvementHorizontal ) >= ( Math.abs(yVelocity) / seuilMouvementVertical )){
-        if (active_slide == 1){
             if (xVelocity>0)
                 document.dispatchEvent(evtLeft);
             else
                 document.dispatchEvent(evtRight);
             return true;
-        }
     }
     else if (Math.abs(yVelocity) >= seuilMouvementVertical){
-        if (currentPage > 1 && currentPage < 5){
+        if (currentPage > 1 && currentPage < maxIndexPage){
             if (yVelocity > 0) {
                     active_slide = active_slide + 1;
                     if (active_slide >= maxSlides) active_slide = maxSlides;
