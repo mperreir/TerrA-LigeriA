@@ -30,13 +30,11 @@ Pour trouver le dossier avec le code source il est nécessaire de se retrouver a
 Terra-Ligeria/musee-botanique/groupe-4/
 ``` 
 
-De là, vous devriez avoir l'ensemble des dossiers et fichiers nécéssaire pour lancer les 2 vues du projet `VueVivant.html`, qui se place avec à gauche l'environnement et à droite le panneau avec le tulle. Et `VueHerbier.html` qui se place directement sur le pan du module à droite. 
+De là, vous devriez avoir l'ensemble des dossiers et fichiers nécéssaire pour lancer les 2 vues du projet dans le dossier `src` :  `VueVivant.html`, qui se place avec à gauche l'environnement et à droite le panneau avec le tulle. Et `VueHerbier.html` qui se place directement sur le pan du module à droite. 
 
 Pour une meilleur appréciation et immersion, il faut entrer en mode plein écran avec la touche **F11** (Fn + F11 si le FnLock est activé)
 
-Les images sont déplaçable grace à la librairie Maptastic. Pour activer le déplacement/rotation, il faut entrer en mode édition avec Space + Shift. 
-L'ensemble des instruction sont sur ce lien : https://github.com/glowbox/maptasticjs/blob/master/README.md.
-
+Les différentes librairie utilisé dans ce projet ont été téléchargé pour éviter les problème de connexion qui pourrait apparaitre en Septembre lors de la présentation au musée, c'est pourquoi le dossier `lib` existe.
 
 ## Installation
 ### Leap Motion
@@ -57,7 +55,8 @@ Sur Windows, dans le menu recherche de la barre des tâches, taper **Leap Motion
 2- Accéder à **museum-botanique/groupe-4**  
 3- Executer (Double-clique) les fichiers **VueVivant.html** et **VueHerbier.html** dans le dossier **src**
 (Pour tester le bon fonctionnement du Leap Motion, executer **threejs-bones.html**)
-###Mapping
+
+### Mapping
 Pour le mapping, cliquer sur la page et appuyer sur `SHIFT` + `Espace` pour entrer en mode édition.  
 Pour la rotation des images, appuyer sur `R` en mode édition.  
 Pour revenir au mode classique, appuyer à nouveau sur `SHIFT` + `Espace`.  
