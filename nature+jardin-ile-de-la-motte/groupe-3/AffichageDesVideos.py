@@ -29,6 +29,7 @@ val_h4 = True
 
 # Initialisation des la fenêtre en pleine écran pour afficher les vidéos
 cv.namedWindow("window", cv.cv2.WND_PROP_FULLSCREEN)
+cv.moveWindow("window", 2000, 0)
 cv.setWindowProperty("window",cv.WND_PROP_FULLSCREEN,cv.WINDOW_FULLSCREEN)
 
 # Initialisation de la première image à afficher
@@ -66,7 +67,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print(data)
                 
                 i = 0
-
+                lenght: int
                 # 'Choix' de la vidéo à afficher en fonction des données reçues
                 if saison == "E":
                     if zone == 1:
@@ -103,9 +104,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 elif saison == "R":
                     vid = plateau
                     zone = 0
-
+                length = int(vid.get(7)) - 1
                 # Affichage d'une boucle complète de vidéo
-                while i <= 39:
+                while i < length:
                     ret, frame = vid.read()
                     frame = cv.rotate(frame, cv.ROTATE_90_COUNTERCLOCKWISE)    
                     cv.imshow("window", frame)
