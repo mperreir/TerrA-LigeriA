@@ -19,3 +19,14 @@ socket.on("afficheur", (data) => {
         Reveal.slide(0, 0, 0);
     }
 })
+
+socket.on('hologramme', (data) => {
+    if (data.action === "angle") {
+        let angle = data.value;
+
+        if (angle < 120) Reveal.slide(0, 0, 0);
+        else if (angle >= 120 && angle < 240) Reveal.slide(1, 0, 0);
+        else if (angle >= 240) Reveal.slide(2, 0, 0);
+
+    }
+})

@@ -1,0 +1,1 @@
+docker build . -t <your username>/2022_terra_group1

@@ -1,7 +1,7 @@
 window.onload = () => {
     const socket = io();
 
-    const nbImageOnithopus = 250;
+    const nbImageOnithopus = 251;
     const nbImageAngelica = 240;
 
     const ImagePerAngleOnithopus = nbImageOnithopus / 360;
@@ -52,26 +52,38 @@ window.onload = () => {
 
     socket.on('hologramme', (data) => {
 
-        if (data.action === " hologrammeChange") {
+        if (data.action === "hologrammeChange") {
 
             currentHologramme = data.value;
             document.querySelector('img').src = imagesOrni[0].src;
 
         } else if (data.action === "angle") {
-            let angle = data.value;
-
+            let angle = (data.value + 1) % 360;
             switch (currentHologramme) {
                 case "ornithopus":
                     let numImageToShowOrnithopus = Math.round(angle * ImagePerAngleOnithopus);
-                    document.querySelector('img').src = imagesOrni[numImageToShowOrnithopus].src;
+                    document.querySelector('img').src = imagesOrni[numImageToShowOrnithopus - 1].src;
                     break;
                 case "angelica":
                     let numImageToShowAngelica = Math.round(angle * ImagePerAngleAngelica);
-                    document.querySelector('img').src = imagesAngelica[numImageToShowAngelica].src;
+                    document.querySelector('img').src = imagesAngelica[numImageToShowAngelica - 1].src;
                     break;
             }
 
         }
 
+    });
+
+    socket.on('telephone', data => {
+        if (data.action = "refresh") {
+            switch (currentHologramme) {
+                case "ornithopus":
+                    document.querySelector('img').src = imagesOrni[0].src;
+                    break;
+                case "angelica":
+                    document.querySelector('img').src = imagesAngelica[0].src;
+                    break;
+            }
+        }
     })
 }

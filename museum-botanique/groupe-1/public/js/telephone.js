@@ -1,27 +1,28 @@
 const socket = io();
-    socket.on("connect", () => {
-      console.log("Connecté");
-    })
-    const angle_g = document.querySelector('.angle_g');
-    let last = 43434;
-    function handleOrientation(event) {
+socket.on("connect", () => {
+    console.log("Connecté");
+})
+const angle_g = document.querySelector('.angle_g');
+let last = 43434;
 
-      const angle1 = Math.round(event.alpha); // In degree in the range [0;360]
-      angle_g.textContent = `angle: ${angle1 }\n`;
+function handleOrientation(event) {
 
-      if (last != angle1){
+    const angle1 = Math.round(event.alpha); // In degree in the range [0;360]
+    angle_g.textContent = `angle: ${angle1}\n`;
+
+    if (last != angle1) {
         socket.emit("hologramme", {
-          action : "angle",
-          value : angle1
+            action: "angle",
+            value: angle1
         });
         last = angle1;
-      }
-
     }
-    socket.on("telephone", (data) => {
-      if (data.action == 'refresh') {
-        window.location.reload();
-      }
-    })
 
-    window.addEventListener('deviceorientation', handleOrientation);
+}
+socket.on("telephone", (data) => {
+    if (data.action == 'refresh') {
+        window.location.reload(true);
+    }
+})
+
+window.addEventListener('deviceorientation', handleOrientation);
