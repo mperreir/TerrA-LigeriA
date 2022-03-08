@@ -10,18 +10,18 @@ plateau = cv.VideoCapture("./Videos/Plateau.mp4")
 # Vidéos plaque été
 e0 = cv.VideoCapture("./Videos/Estivale.mp4")
 e1 = cv.VideoCapture("./Videos/Aigrette_garzette.mp4")
-e2 = cv.VideoCapture("./Videos/Estivale.mp4") # Rien à ajouter plus tard
+e2 = cv.VideoCapture("./Videos/estivale_ecoute.mp4") # Rien à ajouter plus tard
 e3 = cv.VideoCapture("./Videos/Phragmite_des_joncs.mp4")
 e3bis = cv.VideoCapture("./Videos/Rousserolle_affarvatte.mp4")
-e4 = cv.VideoCapture("./Videos/Estivale.mp4") # Rien à ajouter plus tard
+e4 = cv.VideoCapture("./Videos/estivale_ecoute.mp4") # Rien à ajouter plus tard
 
 # Vidéos plaque hiver
 h0 = cv.VideoCapture("./Videos/Hivernale.mp4")
-h1 = cv.VideoCapture("./Videos/Hivernale.mp4") # Rien à ajouter plus tard
+h1 = cv.VideoCapture("./Videos/hivernale_ecoute.mp4") # Rien à ajouter plus tard
 h2 = cv.VideoCapture("./Videos/Becassine_des_marais.mp4")
-h3 = cv.VideoCapture("./Videos/Hivernale.mp4") # Rien à ajouter plus tard
+h3 = cv.VideoCapture("./Videos/hivernale_ecoute.mp4") # Rien à ajouter plus tard
 h4 = cv.VideoCapture("./Videos/Sarcelle_hiver.mp4")
-h4bis = cv.VideoCapture("./Videos/Courlis_cendre.mp4")
+h4bis = cv.VideoCapture("./Videos/Courlis_hiver.mp4")
 
 # booléen pour alterner entre les vidéos double sur les même zones (bis)
 val_e3 = True
@@ -54,7 +54,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         with conn:
             print("Connected by", addr)
             while True:
-                data = conn.recv(1024) # Bloaquant, en attente d'un message du socket
+                data = conn.recv(1024) # Bloquant, en attente d'un message du socket
                 if not data:
                     break
                 data = data.decode('UTF-8')

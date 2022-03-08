@@ -11,7 +11,7 @@ PORTS = 65433
 
 #Connexion à la caméra
 #Sur PC portable : 0 = caméra interne, 1 = caméra externe
-cam = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+cam = cv2.VideoCapture(1,cv2.CAP_DSHOW)
   
 if not cam.isOpened():
     print("Cannot open camera")
@@ -53,8 +53,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-#
-prec = -1
 print("Debut du jeu")
 
 
@@ -63,7 +61,6 @@ compteurImage=0
 whiteSumMean=0
 greenSumMean=0
 blackSumMean=0
-previousColor = None
 
 #Connexion à la socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sv:
@@ -93,10 +90,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sv:
                     else:
                         val = 0
 
-                    if prec != val or val == 0:
-                        sv.sendall(str(val).encode())
-                        ss.sendall(str(val).encode())
-                        prec = val
+                    sv.sendall(str(val).encode())
+                    ss.sendall(str(val).encode())
 
             cv2.imshow("image", img)
 
@@ -167,11 +162,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sv:
                     color = "Black"
                     value = "H"
                 print(color)
-                if previousColor != color or color == "White":
-                    #print(color)
-                    ss.sendall(str(value).encode())
-                    sv.sendall(str(value).encode())
-                    previousColor = color
+                ss.sendall(str(value).encode())
+                sv.sendall(str(value).encode())
                 #Affichage des valeurs pour Tests
                 # print("White : ", whiteSumMean, "\tGreen : ", greenSumMean, "\tBlack : ", blackSumMean)
                 compteurImage = 0

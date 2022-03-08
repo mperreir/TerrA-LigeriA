@@ -29,6 +29,8 @@ PORT = 65432
 
 saison= "R"
 zone= 0
+saisonprec = "R"
+zoneprec = 0
 
 # Un channel est une piste sur laquelle pygame va lancer un son
 channel1 = pygame.mixer.Channel(0)
@@ -50,9 +52,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 data = data.decode('UTF-8')
 
                 # Si le socket envoie un données liée à un changement de plaque
-                if data in ['E','H','R']:
+                if data in ['E','H','R'] and saison != saisonprec:
                     saison = data
-                else:
+                elif zone != zoneprec:
                     zone = int(data)    # Ou a une de la main au dessus d'une zone
                 print(data)
                 
@@ -125,6 +127,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     channel1.fadeout(500)       
                     while channel1.get_busy():
                         pass
+
+                saisonprec = saison
+                zoneprec = zone
+                saison = ""
+                zone = -1
 
 
 
