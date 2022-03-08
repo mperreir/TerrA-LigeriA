@@ -41,7 +41,7 @@ zone = 0
 saison = "R"
 
 HOST = '127.0.0.1'
-PORT = 65432
+PORT = 65433
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
