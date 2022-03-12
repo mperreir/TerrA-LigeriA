@@ -58,7 +58,7 @@ window.onload = () => {
             document.querySelector('img').src = imagesOrni[0].src;
 
         } else if (data.action === "angle") {
-            let angle = (data.value + 1) % 360;
+            let angle = data.value;
             switch (currentHologramme) {
                 case "ornithopus":
                     let numImageToShowOrnithopus = Math.round(angle * ImagePerAngleOnithopus);

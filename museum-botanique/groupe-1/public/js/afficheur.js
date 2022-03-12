@@ -5,6 +5,8 @@ Reveal.initialize({
     progress: true,
     loop: false,
     controls: false,
+    backgroundTransition: "none",
+    transition: 'none',
 });
 
 

@@ -13,7 +13,7 @@ function handleOrientation(event) {
     if (last != angle1) {
         socket.emit("hologramme", {
             action: "angle",
-            value: angle1
+            value: (angle1 + 1) % 360
         });
         last = angle1;
     }
