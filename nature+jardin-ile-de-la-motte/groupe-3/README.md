@@ -22,5 +22,6 @@ Ensuite, il faut lancer le logiciel logitech de façon à enlever l'auto-focus. 
 Pour finir, il suffit d'appuyer sur "q" en sélectionnant la fenêtre de calibrage pour lancer la connexion entre les différents scripts, et ainsi lancer le projet.
 
 ## Génération des zones
-Si le fichier zones.txt venait à être supprimé, il est possible de regénérer les zones grâce au script genZones.py.
-Il faut bien placer la caméra, colorier une zone avec la souris et appuyer sur "n" pour changer de zone. Une fois les 5 zones choisies, appuyer sur "q" pour quitter.
+Si le fichier zones.txt venait à être supprimé ou s'il est plus simple de générer de nouvelles zones, il est possible de regénérer les zones grâce au script genZones.py.
+Il faut bien placer la caméra, colorier une zone avec la souris et appuyer sur "n" pour changer de zone. Une fois les 5 zones choisies, appuyer sur "q" pour quitter. Les zones doivent être colorier dans le sens de l'image suivante :
+![Zones](zones.png)
