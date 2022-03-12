@@ -23,5 +23,5 @@ Pour finir, il suffit d'appuyer sur "q" en sélectionnant la fenêtre de calibra
 
 ## Génération des zones
 Si le fichier zones.txt venait à être supprimé ou s'il est plus simple de générer de nouvelles zones, il est possible de regénérer les zones grâce au script genZones.py.
-Il faut bien placer la caméra, colorier une zone avec la souris et appuyer sur "n" pour changer de zone. Une fois les 5 zones choisies, appuyer sur "q" pour quitter. Les zones doivent être colorier dans le sens de l'image suivante :
+Il faut bien placer la caméra, colorier une zone avec la souris et appuyer sur "n" pour changer de zone. Une fois les 5 zones choisies, appuyer sur "q" pour quitter. Les zones doivent être coloriée dans le sens de l'image suivante :
 ![Zones](zones.png)
