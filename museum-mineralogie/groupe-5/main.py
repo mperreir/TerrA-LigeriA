@@ -1,10 +1,12 @@
 from threading import Thread
 import subprocess
+import os
 
 if __name__ == '__main__':
 
-    t1 = Thread(target=subprocess.run, args=(["env/Scripts/python", "./src/python/ardui.py"],))
-    t2 = Thread(target=subprocess.run, args=(["env/Scripts/python", "./src/python/spectro.py"],))
+    dirname = os.path.dirname(__file__)
+    t1 = Thread(target=subprocess.run, args=(["{}/venv/Scripts/python".format(dirname), "{}/src/python/ardui.py".format(dirname)],))
+    t2 = Thread(target=subprocess.run, args=(["{}/venv/Scripts/python".format(dirname), "{}/src/python/spectro.py".format(dirname)],))
 
     t1.daemon = True;
     t2.daemon = True;
