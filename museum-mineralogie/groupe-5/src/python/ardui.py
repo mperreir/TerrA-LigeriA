@@ -37,6 +37,6 @@ while True:
                     currentSong.stop()
 
                 print("sound playing")
-                currentSong = mixer.Sound("{}/../../records/DUBUISOUND{}.wav".format(os.path.dirname(__file__),p))
+                currentSong = mixer.Sound(os.path.join(os.path.dirname(__file__), "../../records/DUBUISOUND{}.wav".format(p)))
                 currentSong.set_volume(.5)
                 currentSong.play()
