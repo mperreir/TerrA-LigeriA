@@ -32,7 +32,7 @@ while True:
         if(v != pins[p]):
             print(("Set changed for pin {}. New state : {}").format(p,v))
             pins[p] = v
-            if v=="1" and p in ["6","8"]:
+            if v=="1" and p in pins.keys():
                 if currentSong is not None:
                     currentSong.stop()
 
