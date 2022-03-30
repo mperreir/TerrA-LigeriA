@@ -1,0 +1,7 @@
+numpy==1.22.3
+opencv-python==4.5.5.64
+parse==1.19.0
+pygame==2.1.2
+pyo==1.0.4
+pyserial==3.5
+python-dotenv==0.19.2
