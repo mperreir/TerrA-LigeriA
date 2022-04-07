@@ -30,3 +30,7 @@ Pour le téléphone :
 Pour l'hologramme : 
 * Télécharger les images des hologrammes (disponible sur le drive du projet)
 * Décompresser les images sous /public/images/hologramme/\<angelica | ornithopus>
+
+Schéma explicatif des websockets : 
+
+![img](https://i.imgur.com/n0gRgP5.png)
