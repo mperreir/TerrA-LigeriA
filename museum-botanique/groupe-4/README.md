@@ -102,3 +102,20 @@ Une fois l'installation correctement effectuée, un mouvement(gauche / droite) d
 l'affichage des pages d'informations correspondantes (2 ou 3 pages par plantes).\
 (Si difficulté à faire fonctionner le Leap Motion ou pour des phases de test, la navigation à l'aide des flèches
 directionelles du clavier est possible)
+
+### Ajout de nouvelles plantes
+Il est possible d'ajouter de nouvelles plantes en modifiant le fichier [data.js](src/js/data.js).\
+Pour se faire, il faut ajouter aux fichier json une entrée respectant le format suivant:
+```json
+  {
+        "image-vivant": "../data/{NOUVELLE_PLANTE}/{img_plante_vivante.jpg}",
+        "env": "../data/env/{environnement_plante.gif}",
+        "details": [
+            "../data/{NOUVELLE_PLANTE}/{image_herbier.jpg}",
+            "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}",
+            "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}",
+            "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}"
+        ],
+        "audio":"../data/{NOUVELLE_PLANTE}/ambiance.wav"
+    }
+```
