@@ -16,16 +16,16 @@
 ## Introduction
 
 Cette documentation indique l'essentiel de ce qu'il faut savoir pour pouvoir reproduire le projet developpé pour le
-Terr-Ligeria. L'ensemble du code officiel pour tous les projets est tenu par un professeur de
+TerrA-LigeriA. L'ensemble du code officiel pour tous les projets est tenu par un professeur de
 Polytech Nantes : https://github.com/mperreir/TerrA-LigeriA .
 
-Le lien du groupe sur lequel ont à pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est
-un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionner avec l'original.
+Le lien du groupe sur lequel ont a pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est
+un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionné avec l'original.
 
 ##Récupération des fichiers
 ### 1. Téléchargement
  * ####  Via récupération du fichier zip
-    La récupération du code source ce fait en téléchargeant ce [fichier zip](https://github.com/Antoine-Zuber/TerrA-LigeriA/archive/refs/heads/main.zip) (Accessible aussi via la page github du projet (voir [lien](https://github.com/Antoine-Zuber/TerrA-LigeriA)) en cliquant sur le bouton **Code** (voir photo ci-dessous).
+    La récupération du code source se fait en téléchargeant ce [fichier zip](https://github.com/Antoine-Zuber/TerrA-LigeriA/archive/refs/heads/main.zip) (Accessible aussi via la page github du projet (voir [lien](https://github.com/Antoine-Zuber/TerrA-LigeriA)) en cliquant sur le bouton **Code** (voir photo ci-dessous).
 
     ![gitimg](.img-doc/bouton-code.png)
    
@@ -89,7 +89,7 @@ groupe-4
 1. Accéder à **[museum-botanique/groupe-4](.)** 
 2. Pour tester le bon fonctionnement du Leap Motion, executer **[threejs-bones.html](example_leap/EX2-threejs-bones.html)** (situés dans le dossier **[example_leap](example_leap)**)
 3. Ouvrir (Double-clique) les fichiers **[VueVivant.html](src/VueVivant.html)** et **[VueHerbier.html](src/VueHerbier.html)** (situés dans le dossier **[src](src)**) dans un navigateur.\
-    Les deux fichiers doivent chacun ouvert dans une fenêtre de navigateur différente placée chacune sur une sortie (écrans / projecteurs) différentes.
+    Les deux fichiers doivent chacun être ouvert dans une fenêtre de navigateur différente placée chacune sur une sortie (écrans / projecteurs) différentes.
 
 ### Mapping
 Pour le mapping, cliquer sur la page et appuyer sur `SHIFT` + `Espace` pour entrer en mode édition.  
