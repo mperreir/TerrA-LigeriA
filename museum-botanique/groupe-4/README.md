@@ -96,3 +96,9 @@ Pour le mapping, cliquer sur la page et appuyer sur `SHIFT` + `Espace` pour entr
 Pour la rotation des images, appuyer sur `R` en mode édition.  
 Pour revenir au mode classique, appuyer à nouveau sur `SHIFT` + `Espace`.  
 Documentation complète: https://github.com/glowbox/maptasticjs
+
+### Utilisation
+Une fois l'installation correctement effectuée, un mouvement(gauche / droite) de main horizontal permet le défilement des différentes plantes et un mouvement vertical
+l'affichage des pages d'informations correspondantes (2 ou 3 pages par plantes).\
+(Si difficulté à faire fonctionner le Leap Motion ou pour des phases de test, la navigation à l'aide des flèches
+directionelles du clavier est possible)
