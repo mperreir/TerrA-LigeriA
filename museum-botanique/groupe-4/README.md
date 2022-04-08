@@ -1,60 +1,95 @@
-# Herbier intéractif, immersif 
+# Herbier intéractif, immersif
 
-## Présentation 
+## Présentation
 
 **Groupe 4 - Botanique, Distance - Projection**
 
-**EDNA** | **Polytech**
-| --- | --- |
-Elise Croguennoc | Antoine Zuber
-Juliette Rosenbaum | Antoine Eluere
-Marie Sambron | Houssem Kacemi
-Owen Schneider | Iheb Landoulsi
-Paul Maurin | - 
-Sophie Lambert |  -
+| **EDNA**           | **Polytech**   |
+|--------------------|----------------|
+| Elise Croguennoc   | Antoine Zuber  |
+| Juliette Rosenbaum | Antoine Eluere |
+| Marie Sambron      | Houssem Kacemi |
+| Owen Schneider     | Iheb Landoulsi |
+| Paul Maurin        | -              |
+| Sophie Lambert     | -              |
 
+## Introduction
 
-## Introduction 
+Cette documentation indique l'essentiel de ce qu'il faut savoir pour pouvoir reproduire le projet developpé pour le
+Terr-Ligeria. L'ensemble du code officiel pour tous les projets, ce lien de Github et est tenu par un professeur de
+Polytech Nantes : https://github.com/mperreir/TerrA-LigeriA .
 
-Cette documentation indique l'essentiel de ce qu'il faut savoir pour pouvoir reproduire le projet developpé pour le Terr-Ligeria. 
-L'ensemble du code officiel pour tous les projets, ce lien de Github et est tenu par un professeur de Polytech Nantes : https://github.com/mperreir/TerrA-LigeriA .
+Le lien du groupe sur lequel ont à pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est
+un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionner avec l'original.
 
-Le lien du groupe sur lequel ont à pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionner avec l'original. 
+##Récupération des fichiers
+### 1. Téléchargement
+ * ####  Via récupération du fichier zip
+    La récupération du code source ce fait en téléchargeant ce [fichier zip](https://github.com/Antoine-Zuber/TerrA-LigeriA/archive/refs/heads/main.zip) (Accessible aussi via la page github du projet (voir [lien](https://github.com/Antoine-Zuber/TerrA-LigeriA)) en cliquant sur le bouton **Code** (voir photo ci-dessous).
 
-La récupération du code source ce fait en téléchargeant un dossier zip gràce au bouton **Code** en vert sur la page principale du lien <a href="https://github.com/Antoine-Zuber/TerrA-LigeriA"> ici</a>  (voir photo ci dessous).
+    ![gitimg](./img-doc/bouton-code.png)
+   
+    Une fois le fichier téléchargé, décompressez-le (Sous Windows: `CLIQUE DROIT` > Extraire tout)
 
-<img src="./img-doc/bouton-code.png"/>  
+* #### Via Git
+    Si vous êtes familier avec l'utilisation de git, vous pouvez cloner le projet via la commande suivante:
 
-Pour trouver le dossier avec le code source il est nécessaire de se retrouver au bonne endroit qui est donc : 
+    ```git clone https://github.com/Antoine-Zuber/TerrA-LigeriA```
+
+### 2. Trouver le bon répertoire
+Le dossier contenant ce projet est accessible via le chemin suivant:  [museum-botanique/groupe-4](.) et suis l'arborescence suivante :
 ```
-Terra-Ligeria/musee-botanique/groupe-4/
-``` 
+groupe-4
+├───data .......................... Dossier contenant les visuels & sons correspondant aux différentes plantes
+│   ├───0-Sommaire
+│   ├───1-BERBERIS_EMPETRIFOLIA     
+│   │   └───infos
+│   ├───2-DELPHINIUM_STAPHISAGRIA
+│   │   └───infos
+│   ├───3-BERBERIS_ARISTATA
+│   │   └───infos
+│   ├───4-RANUNCULUS_FICARIA
+│   │   └───infos
+│   ├───5-AKEBIA_QUINATA
+│   │   └───infos
+│   ├───env
+│   └───sons
+├───example_leap .................. Dossier contenant des fichiers javascript de test du Leap Motion
+├───img-doc
+├───lib ........................... Dossier contenant les libraires utilisées                    
+└───src ........................... Dossier contenant les fichiers source du projet
+    ├───css
+    └───js
+```
+## Installation && Mise en place
+### Prérequis materiels
+ * Leap motion controller - Dispositif de hand tracking
+ * Ordinateur portable - Contrôle tous les dispositifs utilisés. 1x HDMi, 2x USB type B, 1x Sortie audio.
+ * Projecteur principale: Ce projecteur  lié au pc par un cable HDMI permet d’afficher l’image réel de la plante sur la tulle et le gif qui représente l'environnement de la plante
+ * Projecteur secondaire: Ce projecteur est lié par un câble usb. Il permet d’afficher les informations contenues  dans l’herbier.
+ * Haut-parleurs: ils sont utilisés pour créer une ambiance compatible avec les plantes.
 
-De là, vous devriez avoir l'ensemble des dossiers et fichiers nécéssaire pour lancer les 2 vues du projet dans le dossier `src` :  `VueVivant.html`, qui se place avec à gauche l'environnement et à droite le panneau avec le tulle. Et `VueHerbier.html` qui se place directement sur le pan du module à droite. 
-
-Pour une meilleur appréciation et immersion, il faut entrer en mode plein écran avec la touche **F11** (Fn + F11 si le FnLock est activé)
-
-Les différentes librairie utilisé dans ce projet ont été téléchargé pour éviter les problème de connexion qui pourrait apparaitre en Septembre lors de la présentation au musée, c'est pourquoi le dossier `lib` existe.
-
-## Installation
+    ![installation](img-doc/instalation%20herbier%20plantes.png)
 ### Leap Motion
-Téléchargement du Leap SDK selon la plateforme :
-* Pour windows: https://developer-archive.leapmotion.com/downloads/external/v4-1-hand-tracking/windows?version=4.1.0
-* Pour Ubuntu: https://developer.leapmotion.com/tracking-software-download
-
-Brancher le Leap Motion en USB.
-
-Sur Ubuntu, ouvrir un terminal et executer: 
-```
-sudo leapd;
-```
-Sur Windows, dans le menu recherche de la barre des tâches, taper **Leap Motion Control Panel** et executer le.
-
+* #### Windows
+    1. Télécharger Leap SDK [ici](https://developer-archive.leapmotion.com/downloads/external/v4-1-hand-tracking/windows?version=4.1.0).
+    2. Lancer l'installeur et suivez les instructions.
+    3. Une fois l'installation terminée, chercher "**Leap Motion Control Panel**" dans la barre de recherche et executez-le.
+* #### Ubuntu
+  1. Télécharger Leap SDK [ici](https://www2.leapmotion.com/v2-developer-beta-linux)
+  2. Décompresser **Leap_Motion_SDK_Linux_x.x.x.tgz**
+  3. Installer le paquet via la commande suivante :
+     * Pour les systèmes 32-bit : ```sudo dpkg --install Leap-version-x86.deb```
+     * Pour les systèmes 64-bit : ```sudo dpkg --install Leap-version-x64.deb```
+  4. Brancher le Leap Motion en USB.
+  5. Sur Ubuntu, ouvrir un terminal et executer la commande suivante :```sudo leapd;```. Si tout se passe bien, les LEDs du capteur devrais s'allumées.
+  
 ### Projet
-1- Décompresser le fichier zip du projet.  
-2- Accéder à **museum-botanique/groupe-4**  
-3- Executer (Double-clique) les fichiers **VueVivant.html** et **VueHerbier.html** dans le dossier **src**
-(Pour tester le bon fonctionnement du Leap Motion, executer **threejs-bones.html**)
+
+1. Accéder à **[museum-botanique/groupe-4](.)** 
+2. Pour tester le bon fonctionnement du Leap Motion, executer **[threejs-bones.html](example_leap/EX2-threejs-bones.html)** (situés dans le dossier **[example_leap](example_leap)**)
+3. Ouvrir (Double-clique) les fichiers **[VueVivant.html](src/VueVivant.html)** et **[VueHerbier.html](src/VueHerbier.html)** (situés dans le dossier **[src](src)**) dans un navigateur.\
+    Les deux fichiers doivent chacun ouvert dans une fenêtre de navigateur différente placée chacune sur une sortie (écrans / projecteurs) différentes.
 
 ### Mapping
 Pour le mapping, cliquer sur la page et appuyer sur `SHIFT` + `Espace` pour entrer en mode édition.  
