@@ -1,8 +1,12 @@
 # Icreate Groupe 5
 
-### Installation
+### Prérequis
 
-Fonctionne sous python 3.8.10
+* Ordinateur avec installation python 3.8.10 (le podule pyo n'est pas compatible avec les versions les plus récentes)  
+* Arduino uno (ou équivalent) avec le code présent dans le répertoire src/arduino téléversé et le montage laissé. Faire correspondre les numéros de port du arduino avec le numéro de son (cf : le bouton branché sur le port numéro **5** lit quand il est activé le fichier DUBUISOUND**5**.wav)
+
+
+### Installation
 
 1. Cloner/télécharger le repertoire
 2. Naviguer jusqu'à la racine du dossier
