@@ -10,8 +10,8 @@
 
 1. Cloner/télécharger le repertoire
 2. Naviguer jusqu'à la racine du dossier
-3. Créer un environnement virtuel
-   > python -m pip install virtualenv
+3. Créer un environnement virtuel (préciser dans la deuxième commande le path vers la bonne version de python si plusieurs versions de python sur le PC)
+   > python -m pip install virtualenv  
    > python -m venv env
 4. Activer l'environnement virtuel
    > env\Scripts\activate
