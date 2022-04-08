@@ -105,7 +105,7 @@ directionelles du clavier est possible)
 
 ### Ajout de nouvelles plantes
 Il est possible d'ajouter de nouvelles plantes en modifiant le fichier [data.js](src/js/data.js).\
-Pour se faire, il faut ajouter aux fichier json une entrée respectant le format suivant:
+Pour se faire, il faut ajouter au fichier json une entrée respectant le format suivant :
 ```json
   {
         "image-vivant": "../data/{NOUVELLE_PLANTE}/{img_plante_vivante.jpg}",
