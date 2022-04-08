@@ -113,8 +113,8 @@ Pour se faire, il faut ajouter au fichier json une entrée respectant le format 
         "details": [
             "../data/{NOUVELLE_PLANTE}/{image_herbier.jpg}",
             "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}",
-            "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}",
-            "../data/{NOUVELLE_PLANTE}/infos/{plante_info1.jpg}"
+            "../data/{NOUVELLE_PLANTE}/infos/{plante_info2.jpg}",
+            "../data/{NOUVELLE_PLANTE}/infos/{plante_info3.jpg}"
         ],
         "audio":"../data/{NOUVELLE_PLANTE}/ambiance.wav"
     }
