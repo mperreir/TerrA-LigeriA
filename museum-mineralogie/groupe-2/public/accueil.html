@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>accueil</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/accueil.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/accueil.js"></script>
+</head>
+<body> 
+    <div class="container">
+        <div class="carte"></div>
+
+        <div class="overlay">
+
+            <span id="title"> <h1 id="nomPierre"></h1> <span id="typeDeRoche"></span></span>
+            
+            <div id="infoLeft">
+                <div class="info-card">
+                    <h1 class="info-card-title">Caracteristiques</h1>
+                    <div class="info-card-content">
+                        <span id="caracteristiques"></span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h1 class="info-card-title">Formation</h1>
+                    <div class="info-card-content">
+                        <span id="formation"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="infoUp">
+                <div class="info-card">
+                    <h1 class="info-card-title">Couleur</h1>
+                    <div class="info-card-content">
+                        <span id="couleur"></span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h1 class="info-card-title">Utilisation</h1>
+                    <div class="info-card-content">
+                        <span id="utilisation"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 

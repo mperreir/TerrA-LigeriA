@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="https://unpkg.com/handsfree@8.5.1/build/lib/assets/handsfree.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/admin.js" defer> </script>
+    <script src="https://unpkg.com/handsfree@8.5.1/build/lib/handsfree.js"></script>
+</head>
+
+<body>
+    <h1>Admin</h1>
+  <div class="mb10">
+    <button id="stone1" value="Stone 1">Stone 1</button>
+    <button id="lecturestop" value="Lecture/Stop">Lecture/Stop</button>
+    <div id="updatenote" class="updatenote mt10">Appuyez sur Lecture/Stop pour lancer le modèle</div>
+  </div>
+  <div id="zone-selector">
+    <div id="zone-label">
+      <div class="zone-item template">
+        <span class="zone-color" style="background-color:red"></span>
+        <input class="zone-stone-id" type="text" placeholder="Stone id">
+        <span class="zone-delete">x</span>
+      </div>
+    </div>
+    <div id="canvas-container">
+      <video class="videobox canvasbox" autoplay="autoplay" id="myvideo"></video>
+      <div id="rect-container">
+        <span class="template"></span>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html> 

@@ -1,0 +1,123 @@
+body{
+    background: black;
+}
+
+.carte{
+    width: 100%;
+    height: 100%;
+    background-image: url("../ressources/media/accueil.gif");
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s ease-in-out;
+    background-size: contain;
+}
+
+.overlay {
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+    transition-delay: 0.3s;
+    position: absolute;
+    z-index: 3;
+    width: calc(100% - 25px);
+    height: calc(100% - 25px);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.carte-parts {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.carte-parts > * {
+    display: none;
+    position: fixed;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#title {
+    display: flex;
+    align-items: baseline;
+}
+
+#title h1{
+    margin-right: 10px
+}
+
+#title span{
+    opacity: 0.5
+}
+
+#infoLeft {
+    position: absolute;
+    margin-top: 10px;
+}
+
+#infoUp {
+    position : absolute;
+    right : 0;
+    top : 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#infoRigthBottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.info-card {
+    width: 200px;
+    height: 200px;
+    border: solid 1px white;
+    display: grid;
+    grid-template-rows: 30px auto;
+    margin : 0px 10px 10px 0px;
+}
+
+.info-card-title {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.info-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 15px;
+}
+
+/* Activated */
+
+.activated .carte{
+    opacity: 0;
+}
+
+.activated .overlay {
+    opacity: 1;
+}
+
+.activated .carte-parts > .active {
+    opacity: 1;
+    left: 50%;
+    right: 50%;
+}
+

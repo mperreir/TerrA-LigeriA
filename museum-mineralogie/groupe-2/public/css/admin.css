@@ -1,0 +1,90 @@
+video {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#zone-selector {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#zone-label {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.zone-item {
+    padding: 10px;
+    margin: 10px;
+    background: #ffffff14;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.zone-item.selected {
+    border: solid 5px white;
+    box-sizing: border-box;
+}
+
+.zone-item > *:not(:first-child){
+    margin-left: 5px;
+}
+.zone-item .zone-color{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+
+.zone-item .zone-stone-id {
+    background: none;
+    border: solid 1px white;
+    padding: 5px;
+    color: white;
+}
+
+.zone-item .zone-delete {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.795);
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.zone-item .zone-delete:hover {
+    background: grey;
+}
+
+.template {
+    display: none;
+}
+
+#rect-container {
+    position: relative;
+}
+
+#rect-container > *{
+    position: absolute;
+    border: solid 3px white;
+}
+
+#canvas-container {
+    width: 600px;
+}
+
+#canvas-container canvas {
+    position: absolute;
+}
+
+#myvideo {
+    position: absolute;
+}
