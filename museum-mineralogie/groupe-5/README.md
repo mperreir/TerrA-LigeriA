@@ -9,7 +9,7 @@
 ### Installation
 
 1. Cloner/télécharger le repertoire
-2. Naviguer jusqu'à la racine du dossier
+2. Ouvrir une console et naviguer jusqu'à la racine du dossier
 3. Créer un environnement virtuel (préciser dans la deuxième commande le path vers la bonne version de python si plusieurs versions de python sur le PC)
    > python -m pip install virtualenv  
    > python -m venv env
