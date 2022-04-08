@@ -17,16 +17,9 @@
    > env\Scripts\activate
 5. Installer les dépendances
    > python -m pip install -r requirements.txt
-6. Configurer les variables du fichier .env
-   Normalement rien à faire
+6. Configurer les variables du fichier .env au besoin (normalement rien à faire)  
 
 ### Lancer le programme
-
-Si pas déjà fait, activer l'environnement virtuel.
-
-> env\Scripts\activate
-
-Puis:
 
 > python main.py
 
