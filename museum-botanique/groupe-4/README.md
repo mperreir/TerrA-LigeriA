@@ -27,7 +27,7 @@ un fork (une branche parallèle en quelque sorte) qui sera ensuite refusionner a
  * ####  Via récupération du fichier zip
     La récupération du code source ce fait en téléchargeant ce [fichier zip](https://github.com/Antoine-Zuber/TerrA-LigeriA/archive/refs/heads/main.zip) (Accessible aussi via la page github du projet (voir [lien](https://github.com/Antoine-Zuber/TerrA-LigeriA)) en cliquant sur le bouton **Code** (voir photo ci-dessous).
 
-    ![gitimg](./img-doc/bouton-code.png)
+    ![gitimg](.img-doc/bouton-code.png)
    
     Une fois le fichier téléchargé, décompressez-le (Sous Windows: `CLIQUE DROIT` > Extraire tout)
 
@@ -69,7 +69,7 @@ groupe-4
  * Projecteur secondaire: Ce projecteur est lié par un câble usb. Il permet d’afficher les informations contenues  dans l’herbier.
  * Haut-parleurs: ils sont utilisés pour créer une ambiance compatible avec les plantes.
 
-    ![installation](img-doc/instalation%20herbier%20plantes.png)
+    ![installation](.img-doc/instalation%20herbier%20plantes.png)
 ### Leap Motion
 * #### Windows
     1. Télécharger Leap SDK [ici](https://developer-archive.leapmotion.com/downloads/external/v4-1-hand-tracking/windows?version=4.1.0).
