@@ -16,7 +16,7 @@
 ## Introduction
 
 Cette documentation indique l'essentiel de ce qu'il faut savoir pour pouvoir reproduire le projet developpé pour le
-Terr-Ligeria. L'ensemble du code officiel pour tous les projets, ce lien de Github et est tenu par un professeur de
+Terr-Ligeria. L'ensemble du code officiel pour tous les projets est tenu par un professeur de
 Polytech Nantes : https://github.com/mperreir/TerrA-LigeriA .
 
 Le lien du groupe sur lequel ont à pu developper est celui ci : https://github.com/Antoine-Zuber/TerrA-LigeriA . C'est
