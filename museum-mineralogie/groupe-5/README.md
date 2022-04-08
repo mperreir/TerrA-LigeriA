@@ -3,7 +3,7 @@
 ### Prérequis
 
 * Ordinateur avec installation python 3.8.10 (le podule pyo n'est pas compatible avec les versions les plus récentes)  
-* Arduino uno (ou équivalent) avec le code présent dans le répertoire src/arduino téléversé et les connexions domme décrites. Faire correspondre les numéros de port du arduino avec le numéro de son (cf : le bouton branché sur le port numéro **5** lit quand il est activé le fichier DUBUISOUND**5**.wav dans le dossier records)
+* Arduino uno (ou équivalent) avec le code présent dans le répertoire src/arduino téléversé et les connexions comme décrites. Faire correspondre les numéros de port du arduino avec le numéro de son (cf : le bouton branché sur le port numéro **5** lit quand il est activé le fichier DUBUISOUND**5**.wav dans le dossier records)
 
 
 ### Installation
