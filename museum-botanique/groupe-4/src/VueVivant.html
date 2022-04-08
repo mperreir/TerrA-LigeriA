@@ -17,37 +17,26 @@
   
   <!-- Import des fichiers js sources -->
   <script src="js/loop.js" defer></script>
+  <script src="js/data.js"></script>
   <script src="js/vivant.js" defer></script>
   
 
 
 
 </head>
-<body id="body">
+<body id="body" style="overflow: hidden;">
 <main style="display: flex" id="main">
   
   <!-- Image d'environnement sur le plateau -->
   <div id="environement">
     <div id="milieux" class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <!--Environnement du sommaire-->
+        <div class="swiper-slide" id="sommaire-environnement">
           <img src="../data/env/desert.gif"/>
         </div>
-        <div class="swiper-slide">
-          <img src="../data/env/env_marecage.gif"/>
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/env/environnement foret.gif">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/env/plaine_champ.gif">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/env/env_marecage.gif">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/env/environnement foret.gif">
-        </div>
+
+        <!--Environnement de la page de fin-->
         <div class="swiper-slide">
           <img src="../data/env/desert.gif"/>
         </div>
@@ -58,38 +47,18 @@
   <!-- Image de la plante vivante  -->
   <div class="swiper-container" id="divimage">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="../data/0-Sommaire/sommaire.png" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+        <div class="swiper-slide" id="sommaire-vivant">
+          <img src="../data/0-Sommaire/sommaire.png"  alt="">
         </div>
+
         <div class="swiper-slide">
-          <img src="../data/1-BERBERIS_EMPETRIFOLIA/berberis_empetrifolia_3.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/2-DELPHINIUM_STAPHISAGRIA/delphinium_staphisagria_1.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/3-BERBERIS_ARISTATA/berberis_aristata_3.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/4-RANUNCULUS_FICARIA/ranunculus_ficaria_1.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/5-AKEBIA_QUINATA/akebia_quinatia_3.jpg" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../data/0-Sommaire/page_fin2.png" style="display: flex;align-items: center; margin-left: auto; margin-right: auto; height: 100%; margin-top: 0; margin-bottom: 0;" alt="">
+          <img src="../data/0-Sommaire/page_fin2.png" alt="">
         </div>
       </div>
   </div>
 </main>
-<div>
+<div id="div-audio">
   <audio id="audio1" autoplay volume=1.0 loop src="../data/0-Sommaire/1-minute-of-silence.mp3"></audio>
-  <audio id="audio2" volume=0.0  loop src="../data/1-BERBERIS_EMPETRIFOLIA/ambiance.mp3"></audio>
-  <audio id="audio3" volume=0.0 loop src="../data/2-DELPHINIUM_STAPHISAGRIA/ambiance.wav"></audio>
-  <audio id="audio4" volume=0.0 loop src="../data/3-BERBERIS_ARISTATA/ambiance.mp3"></audio>
-  <audio id="audio5" volume=0.0 loop src="../data/4-RANUNCULUS_FICARIA/ambiance.mp3"></audio>
-  <audio id="audio6" volume=0.0 loop src="../data/5-AKEBIA_QUINATA/ambiance.wav"></audio>
-  <audio id="audio7" volume=0.0 loop src="../data/0-Sommaire/1-minute-of-silence.mp3"></audio>
 
 </div>
 </body>

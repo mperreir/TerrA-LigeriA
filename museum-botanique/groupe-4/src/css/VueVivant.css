@@ -39,3 +39,12 @@ img {
     width : 1000px;
     height : 1500px;
 }
+
+img{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}

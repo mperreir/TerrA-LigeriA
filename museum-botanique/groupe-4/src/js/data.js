@@ -1,0 +1,57 @@
+const data = [
+    {
+        'image-vivant':"../data/1-BERBERIS_EMPETRIFOLIA/berberis_empetrifolia_3.jpg",
+        'env':"../data/env/desert.gif",
+        'details':[
+            "../data/1-BERBERIS_EMPETRIFOLIA/mhnn.b.10101.168.jpg",
+            "../data/1-BERBERIS_EMPETRIFOLIA/infos/berberis1.png",
+            "../data/1-BERBERIS_EMPETRIFOLIA/infos/berberis2.png",
+            "../data/1-BERBERIS_EMPETRIFOLIA/infos/berberis3.png"
+        ],
+        'audio':"../data/1-BERBERIS_EMPETRIFOLIA/ambiance.mp3"
+    },
+    {
+        'image-vivant':"../data/2-DELPHINIUM_STAPHISAGRIA/delphinium_staphisagria_1.jpg",
+        'env':"../data/env/environnement foret.gif",
+        'details':[
+            "../data/2-DELPHINIUM_STAPHISAGRIA/mhnn.b.10101.140.jpg",
+            "../data/2-DELPHINIUM_STAPHISAGRIA/infos/delph1.png",
+            "../data/2-DELPHINIUM_STAPHISAGRIA/infos/delph2.png",
+            "../data/2-DELPHINIUM_STAPHISAGRIA/infos/delph3.png"
+        ],
+        'audio':"../data/2-DELPHINIUM_STAPHISAGRIA/ambiance.wav"
+    },
+    {
+        'image-vivant':"../data/3-BERBERIS_ARISTATA/berberis_aristata_3.jpg",
+        'env':"../data/env/plaine_champ.gif",
+        'details':[
+            "../data/3-BERBERIS_ARISTATA/mhnn.b.10101.167.jpg",
+            "../data/3-BERBERIS_ARISTATA/infos/berberis1.png",
+            "../data/3-BERBERIS_ARISTATA/infos/berberis2.png",
+            "../data/3-BERBERIS_ARISTATA/infos/berberis3.png"
+        ],
+        'audio':"../data/3-BERBERIS_ARISTATA/ambiance.mp3"
+    },
+    {
+        'image-vivant':"../data/4-RANUNCULUS_FICARIA/ranunculus_ficaria_1.jpg",
+        'env':"../data/env/env_marecage.gif",
+        'details':[
+            "../data/4-RANUNCULUS_FICARIA/mhnn.b.10101.110.jpg",
+            "../data/4-RANUNCULUS_FICARIA/infos/ranu1.png",
+            "../data/4-RANUNCULUS_FICARIA/infos/ranu2.png",
+            "../data/4-RANUNCULUS_FICARIA/infos/ranu3.png"
+        ],
+        'audio':"../data/4-RANUNCULUS_FICARIA/ambiance.mp3"
+    },
+    {
+        'image-vivant':"../data/5-AKEBIA_QUINATA/akebia_quinatia_3.jpg",
+        'env':"../data/env/environnement foret.gif",
+        'details':[
+            "../data/5-AKEBIA_QUINATA/mhnn.b.10101.161.jpg",
+            "../data/5-AKEBIA_QUINATA/infos/akebia1.png",
+            "../data/5-AKEBIA_QUINATA/infos/akebia2.png",
+            "../data/5-AKEBIA_QUINATA//infos/akebia3.png"
+        ],
+        'audio':"../data/5-AKEBIA_QUINATA/ambiance.wav"
+    },
+]

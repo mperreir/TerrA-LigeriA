@@ -16,8 +16,18 @@ h1 {
     color: rgb(255, 255, 255);
 }
 .herbier {
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 80%;
     transition: opacity 0.5s 0.5s;
     z-index: 1;
+}
+
+img{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
