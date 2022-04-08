@@ -1,0 +1,13 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+}
+
+.img {
+    transform: rotate(90deg);
+}
+
+img {
+    width: 100%;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruction</title>
+
+    <link rel="stylesheet" href="/css/swipper.css" />
+
+    <script src="/js/lib/swipper.js"></script>
+
+    <link rel="stylesheet" href="/css/instruction.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src='/js/instruction.js' defer></script>
+    <script src='/js/lib/socketio.js'></script>
+
+</head>
+
+<body>
+    <main>
+        <div class="container">
+
+            <div class="swiper" id='swiper_id'>
+                <!-- Additional required wrapper -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-id="angelica">
+                        <p id="name">L'ANGELIQUE DES ESTUAIRES</p>
+                        <img src='/images/angelique.svg' class="flower">
+                    </div>
+
+                    <div class="swiper-slide" data-id="ornithopus">
+                        <p id="name">ORNITHOPUS SATIVUS</p>
+                        <img src='/images/ornithopus.svg' class="flower">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="container">
+                <div class="main-content">
+                    <div class="instruction">
+                        <p>Tourne le disque sous la table pour manipuler</p>
+                        <p>la plante affichée sur l’hologramme</p>
+                    </div>
+                    <img class="restart" src="/images/restart.svg"></img>
+                </div>
+
+            </div>
+
+            <div class='container_ellipse'>
+                <img src='/images/ellipse.svg' class="ellipse">
+            </div>
+
+    </main>
+</body>
+
+</html>
