@@ -1,0 +1,67 @@
+{
+    "1": {
+        "name" : "Michaschiste",
+        "type": "Roche Métamorphique",
+        "caracteristiques": {
+            "texture": "Grains fins, aspect feuilleté.",
+            "composition": "Alternance de lits de quartz et feldspaths et de lits de mica blanc (muscovite)."
+        },
+        "formation": "Se forme sous une température variant de 200°C à 650°c.",
+        "couleur" : "Roche qui peut avoir des strates de couleurs grises, rouille, blanches.",
+        "utilisation": "Peut être utilisée pour construire les murs extérieurs de maison (pierres apparentes).",
+        "hologramme" : "Micaschiste/Micaschite gris argentin.17.gif",
+        "carte": "carte_1.png"
+    },
+    "2": {
+        "name" : "Granite",
+        "type": "Roche Plutonique, Roche Métamorphique",
+        "caracteristiques": {
+            "texture": "grenue, rugueux.",
+            "composition": "Composée de quartz, feldspaths, plagioclases, micas."
+        },
+        "formation": "Se forme en profondeur par refroidissement très lent du magma dans des chambres magmatiques.",
+        "couleur" : "Roche qui peut être grise, bleue, jaune, rose .. On recense à ce jour plus de 500 couleurs de granite.",
+        "utilisation": "Matériau résistant très utilisé en construction, dallage, décoration, sculpture.",
+        "hologramme" : "Granite/granite brun.gif",
+        "carte": "carte_2.png"
+    },
+"3": {
+        "name" : "Phyllade",
+        "type": "Roche Métamorphique",
+        "caracteristiques": {
+            "texture": "Grains fins, aspect feuilleté.",
+            "composition": "Terme désignant le schiste. Composée de muscovite et de quartz. Les minéraux accessoires, sont la biotites, les feldspaths, la chlorite, le graphites, les grenats."
+        },
+        "formation": "Se forme via une pression et température précise sur de l’argile..",
+        "couleur" : "Roche qui peut-être noire, verdâtre, rougeâtre ou violette.",
+        "utilisation": "Peut être utilisée comme pierre à aiguiser.",
+        "hologramme" : "Phyllade/phyllade rouge et gris bleuatre.58.gif",
+        "carte": "carte_3.png"
+    },
+    "4": {
+        "name" : "Variété de Quartz",
+        "type": "Minéral",
+        "caracteristiques": {
+            "texture": "Lisse. Possède une forme cristalline",
+            "composition": "Composé de silice, agate, calcédoine cristal de roche (quartz hyalin), jaspe."
+        },
+        "formation": "Se forme par la cristallisation de la silice.",
+        "couleur" : "Minéral qui a des couleurs variées : incolore, blanc, gris, jaune, violet, rose, brun, noir, verdâtre, bleuâtre.",
+        "utilisation": "Peut être utilisé en horlogerie, joaillerie, construction.",
+        "hologramme" : "Quartz/Quartz_hydralin_blanc_laiteux_.158.gif",
+        "carte": "carte_4.png"
+    },
+"5": {
+        "name" : "Amphibolite",
+        "type": "Roche Métamorphique",
+        "caracteristiques": {
+            "texture": "Grenue.",
+            "composition": "Composée de tale, jaspe, d'amphiboles et plagioclases. Peut contenir en plus du quartz ou du grenat."
+        },
+        "formation": "Se forme à des pressions et températures très élevées.",
+        "couleur" : "Roche de couleur grise.",
+        "utilisation": "Amphibole est une composante de l’amiante. Sert à la création d'isolant thermique.",
+        "hologramme" : "Amphibolite/amphibolite brun verdatre.49.gif",
+        "carte": "carte_5.png"
+    }
+}
