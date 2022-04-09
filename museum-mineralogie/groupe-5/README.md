@@ -1,28 +1,25 @@
 # Icreate Groupe 5
 
+### Prérequis
+
+* Ordinateur avec installation python 3.8.10 (le podule pyo n'est pas compatible avec les versions les plus récentes)  
+* Arduino uno (ou équivalent) avec le code présent dans le répertoire src/arduino téléversé et les connexions comme décrites. Faire correspondre les numéros de port du arduino avec le numéro de son (cf : le bouton branché sur le port numéro **5** lit quand il est activé le fichier DUBUISOUND**5**.wav dans le dossier records)
+
+
 ### Installation
 
-Fonctionne sous python 3.8.10
-
 1. Cloner/télécharger le repertoire
-2. Naviguer jusqu'à la racine du dossier
-3. Créer un environnement virtuel
-   > python -m pip install virtualenv
+2. Ouvrir une console et naviguer jusqu'à la racine du dossier
+3. Créer un environnement virtuel (préciser dans la deuxième commande le path vers la bonne version de python si plusieurs versions de python sur le PC)
+   > python -m pip install virtualenv  
    > python -m venv env
 4. Activer l'environnement virtuel
    > env\Scripts\activate
 5. Installer les dépendances
    > python -m pip install -r requirements.txt
-6. Configurer les variables du fichier .env
-   Normalement rien à faire
+6. Configurer les variables du fichier .env au besoin (normalement rien à faire)  
 
 ### Lancer le programme
-
-Si pas déjà fait, activer l'environnement virtuel.
-
-> env\Scripts\activate
-
-Puis:
 
 > python main.py
 
