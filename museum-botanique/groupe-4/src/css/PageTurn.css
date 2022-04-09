@@ -1,0 +1,94 @@
+html {
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    background-color: black;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  h1 {
+    text-align: center;
+  }
+  .scene {
+    width : 720px;
+    height : 1480px;
+    margin: 0% 5% 5% 5%;
+    perspective: 1000px;
+  }
+  .book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+  .page {
+    position: absolute;
+    color: black;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s 0.5s;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10% 5% 5%;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    background: -webkit-gradient(linear, 0% 0%, 100% 100%, from(#FFFFFF), to(#CCCCCC));
+    background: linear-gradient(to bottom right, #fff, #ccc);
+  }
+  .page.active {
+    transform: rotateY(0deg);
+    transition: 1.5s transform;
+    z-index: 1;
+  }
+  .page.flipped {
+    transform: rotateY(-90deg);
+    transition: 1.5s transform;
+    z-index: 2;
+  }
+  .active ~ .page{
+    opacity: 0;
+  }
+  p {
+    margin: 0 0 0.1em;
+    text-indent: 1em;
+  }
+  .qr {
+    margin: 50px auto;
+    max-width: 50%;
+  }
+  .qr img {
+    display: block;
+  }
+  /* iPads (portrait) ----------- */
+  
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .scene {
+      width: 90%;
+      height: 90%;
+      margin: 5%;
+    }
+  }
+  /* added for the buttons */
+  
+  #next {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+  #prev {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+  }
+
+  .slide{
+    height: 100%;
+    width: 100%;
+  }

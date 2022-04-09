@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="" id="html">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Vivant + Env</title>
+  
+  <!-- Import des fichiers css sources -->
+  <link rel="stylesheet" href="../lib/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/VueVivant.css">
+
+    <!-- Import des libs -->
+  <script src="../lib/jquery-3.4.1.min.js" defer></script>
+  <script src="../leap-1.1.1.js"></script>
+  <script src="../lib/swiper-bundle.min.js" defer></script>
+  <script src="../lib/maptasticjs/build/maptastic.js"></script>
+  
+  <!-- Import des fichiers js sources -->
+  <script src="js/loop.js" defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/vivant.js" defer></script>
+  
+
+
+
+</head>
+<body id="body" style="overflow: hidden;">
+<main style="display: flex" id="main">
+  
+  <!-- Image d'environnement sur le plateau -->
+  <div id="environement">
+    <div id="milieux" class="swiper-container">
+      <div class="swiper-wrapper">
+        <!--Environnement du sommaire-->
+        <div class="swiper-slide" id="sommaire-environnement">
+          <img src="../data/env/desert.gif"/>
+        </div>
+
+        <!--Environnement de la page de fin-->
+        <div class="swiper-slide">
+          <img src="../data/env/desert.gif"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image de la plante vivante  -->
+  <div class="swiper-container" id="divimage">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="sommaire-vivant">
+          <img src="../data/0-Sommaire/sommaire.png"  alt="">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="../data/0-Sommaire/page_fin2.png" alt="">
+        </div>
+      </div>
+  </div>
+</main>
+<div id="div-audio">
+  <audio id="audio1" autoplay volume=1.0 loop src="../data/0-Sommaire/1-minute-of-silence.mp3"></audio>
+
+</div>
+</body>
+</html>
