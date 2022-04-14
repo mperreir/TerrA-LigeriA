@@ -1,8 +1,9 @@
 # Terra Ligeria
 
-## Installation 
+## Installation
 
 Prérequis :
+
 * NodeJS et NPM
 
 Installation :
@@ -18,17 +19,21 @@ Attention, les HTTP**S** est obligatoire
 Chaque tablette doit se connecter au serveur, il faut donc récuperer l'IP du serveur grace à `ipconfig` dans une cmd ou `ip a` dans un terminal linux.
 
 Pour les afficheurs : 
+
 * https://\<IP>:\<PORT>/afficheur.html
 * https://\<IP>:\<PORT>/instruction.html
 
 Pour l'hologramme :
+
 * https://\<IP>:\<PORT>/hologramme.html
 
 Pour le téléphone : 
+
 * https://\<IP>:\<PORT>/telephone.html
 
 Pour l'hologramme : 
-* Télécharger les images des hologrammes (disponible sur le drive du projet)
+
+* Télécharger les images des hologrammes (disponible sur le drive du projet : [TerrALigeriA – Google Drive](https://drive.google.com/drive/folders/1zgx7aNkUJReKdz6byzvDqp-mefbbEeZ3?usp=sharing "https://drive.google.com/drive/folders/1zgx7aNkUJReKdz6byzvDqp-mefbbEeZ3?usp=sharing"))
 * Décompresser les images sous /public/images/hologramme/\<angelica | ornithopus>
 
 Schéma explicatif des websockets : 
